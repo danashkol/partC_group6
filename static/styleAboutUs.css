@@ -1,0 +1,82 @@
+.about{
+    background: url(../Static/about\ us.webp) no-repeat left;
+    background-size: 55%;
+    overflow: hidden;
+    padding: 100px 0;   
+}
+
+.inner-section{
+    border-radius: 5px;
+    width: 55%;
+    float: right;
+    background-color: rgba(248, 166, 180, 0.5);
+    padding: 140px;
+    box-shadow: 10px 10px 8px rgba(0,0,0,.2);
+}
+
+.inner-section h1{
+    margin-bottom: 30px;
+    font-size: 30px;
+    font-weight: 900;
+    margin-left: 10px;
+}
+
+.text{
+    font-size: 13px;
+    color:#1d0202;
+    line-height: 30px;
+    text-align: justify;
+    margin-bottom: 40px;
+    margin-left: 10px;
+}
+
+.skills button{
+    font-size: 22px;
+    text-align: center;
+    letter-spacing: 2px;
+    border: none;
+    border-radius: 20px;
+    padding: 8px;
+    width: 200px;
+    background-color:rgba(202, 136, 147, 0.702);
+    color: white;
+    cursor: pointer;
+    margin-left: 10px;
+}
+
+.skills button:hover{
+    transition: .5s;
+    background-color:rgba(244, 233, 235, 0.702);
+    color: rgba(202, 136, 147, 0.702);
+    
+}
+
+@media screen and (max-width: 1200px){
+.inner-section{
+    padding: 80px;
+    }
+}
+
+@media screen and (max-width: 1000px){
+    .about{
+        background-size: 100%;
+        padding: 100px 40px;
+    }
+    .inner-section{
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 600px){
+    .about{
+        padding: 0;
+    }
+    .inner-section{
+        padding: 60px;
+    }
+    .skills button{
+        font-size: 19px;
+        padding: 5px;
+        width: 160px;
+    }
+}

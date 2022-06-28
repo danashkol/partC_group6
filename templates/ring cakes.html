@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block main %}
+        <link rel="stylesheet" href="../static/stylephotos.css">
+    <div class="top">
+        <h1>Ring Cakes</h1>
+    </div>
+    <div class="photosCategory" id="photosCategory">
+        <div class="pic Rings1">
+            <a><img id="Rings1" src="../Static/ring cakes/2 level ring cake.jpeg"
+                    onclick="openPopUp(this.src, '2 Level Ring Cake')"></a>
+        </div>
+        <div class="pic Rings2">
+            <a><img src="../Static/ring cakes/berry ring cake.jpeg"
+                    onclick="openPopUp(this.src, 'Berry Ring Cake')"></a>
+        </div>
+        <div class="pic Rings3">
+            <a><img src="../Static/ring cakes/ring cake.jpeg" onclick="openPopUp(this.src, 'Ring Cake')"></a>
+        </div>
+        <div class="pic Rings4">
+            <a><img src="../Static/ring cakes/Will You Marry Me.jpg"
+                    onclick="openPopUp(this.src, 'Will You Marry Me Cake')"></a>
+        </div>
+        <div class="pic Rings5">
+            <a><img src="../Static/ring cakes/G.jpg" onclick="openPopUp(this.src, ' White & Gold Ring Cake')"></a>
+        </div>
+    </div>
+{% include 'weddingCakePage.html' %}
+{% endblock %}

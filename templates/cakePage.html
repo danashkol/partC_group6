@@ -1,0 +1,64 @@
+<div class="container" id="container">
+        <div class="contact-box">
+            <div class="left" id="left">
+                <img src="" id="oleft" alt="">
+            </div>
+            <div class="right">
+                <button id="close" onclick="closePopUp()">X</button>
+                <div class="right1">
+                    <h2 id="name"></h2>
+                    <form class="form" action="paymentPage.html">
+                        <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
+                            <option disabled selected>Cake Size - Defualt 24cm </option>
+                            <option data-price="200" value="200">22 cm</option>
+                            <option  data-price="270" value="270">24 cm</option>
+                            <option  data-price="300" value="300">26 cm</option>
+                        </select><br>
+                        <select name="cake flavor" class="field" required>
+                            <option disabled selected>Cake Flavor - Defualt Vanilla</option>
+                            <option>Nutella</option>
+                            <option>Vanilla</option>
+                            <option>Kinder</option>
+                            <option>Pistachio</option>
+                        </select><br>
+
+                        <input type="number" class="field" placeholder="Add Age" min="0">
+                        <select name="deuration color" class="field" required>
+                            <option disabled selected>Age Number Color</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                        </select><br>
+                        <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="deuration color" class="field" required>
+                            <option disabled selected>Greeting Color - Defualt white</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                        </select><br>
+                        <div>
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element" value="100"
+                                                                                             class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element" value="70"
+                                                                                            class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                            <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
+                                                                                           class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                        </div>
+                        <textarea style="resize:none" class="field"
+                                  placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
+                        <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
+                                                             name="total" /></h4>
+                        <button name="total" class="btn" value="0">Payment</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>

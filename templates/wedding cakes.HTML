@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="../static/stylephotos.css">
+
+    <div class="top">
+        <h1>Wedding Cakes</h1>
+    </div>
+    <div class="photosCategory" id="photosCategory">
+        <div class="pic Wedding1">
+            <a><img id="Wedding1" src="../Static/wedding cakes/3 level wedding cake.jpeg"
+                    onclick="openPopUp(this.src, '3 Level Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding2">
+            <a><img src="../Static/wedding cakes/brown _ white wedding cake.jpeg"
+                    onclick="openPopUp(this.src, 'Brown & White Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding3">
+            <a><img src="../Static/wedding cakes/classic flower wedding cake.jpeg"
+                    onclick="openPopUp(this. src, 'Classic Flower Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding4">
+            <a><img src="../Static/wedding cakes/fruit weddind cake.jpeg"
+                    onclick="openPopUp(this.src, 'Fruit Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding5">
+            <a><img src="../Static/wedding cakes/love wedding cake.jpeg"
+                    onclick="openPopUp(this.src, 'Love Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding6">
+            <a><img src="../Static/wedding cakes/white flower wedding cake.jpeg"
+                    onclick="openPopUp(this.src, 'White Flower Wedding Cake')"></a>
+        </div>
+        <div class="pic Wedding7">
+            <a><img src="../Static/wedding cakes/white wedding cake.jpeg"
+                    onclick="openPopUp(this.src, 'White Wedding Cake')"></a>
+        </div>
+
+    </div>
+{% include 'weddingCakePage.html' %}
+{% endblock %}
