@@ -1,7 +1,59 @@
-{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
 
-{% block main %}
-        <link rel="stylesheet" href="../static/stylephotos.css">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ring Cakes</title>
+    <link rel="stylesheet" href="../Static/stylephotos.css">
+    <link rel="stylesheet" href="../Static/styleGeneral.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
+    <script src="../Static/functions.js"></script>
+</head>
+
+<body id="body" onload="categoryName()">
+
+    <nav class="navigationBar">
+        <div class="logo">
+            <img src="../Static/logo without.jpg">
+        </div>
+        <ul>
+            <li><a href="home page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
+            <li><a href="../pages/signIn_UP/templates/signIn_Up3.html">Sign In/Log In</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
+            <li><a>Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
+                <div class="subMenu1">
+                    <ul>
+                        <li><a href="girl cakes.html">Girl Cakes</a></li>
+                        <li><a href="boy cakes.html">Boy Cakes</a></li>
+                        <li><a href="adult cakes.html">Adult Cakes</a></li>
+                        <li><a href="num _ letter cakes.html">Number & Letter Cakes</a></li>
+                    </ul>
+                </div>
+            </li>
+            <i class="fa-duotone fa-rings-wedding"></i>
+            <li><a>Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
+                <div class="subMenu1">
+                    <ul>
+                        <li><a href="wedding cakes.HTML">Wedding Cakes</a></li>
+                        <li><a href="ring cakes.html">Ring Cakes</a></li>
+                        <li><a href="bachlorette party cakes.html">Bachelorette Party Cakes</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a>Our Classics</a><i class="fa fas fa-chart-pie"></i>
+                <div class="subMenu1">
+                    <ul>
+                        <li><a href="pies.html">Pies</a></li>
+                        <li><a href="yeast cakes.html">Yeast Cakes</a></li>
+                        <li><a href="special cakes.html">Our Specials</a></li>
+                    </ul>
+                </div>
+            </li>
+            <li><a href="Contact Us.html">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
+        </ul>
+    </nav>
     <div class="top">
         <h1>Ring Cakes</h1>
     </div>
@@ -25,5 +77,92 @@
             <a><img src="../Static/ring cakes/G.jpg" onclick="openPopUp(this.src, ' White & Gold Ring Cake')"></a>
         </div>
     </div>
-{% include 'weddingCakePage.html' %}
-{% endblock %}
+
+    <div class="container" id="container">
+        <div class="contact-box">
+            <div class="left" id="left">
+                <img id="oleft" alt="">
+            </div>
+            <div class="right">
+                <button id="close" onclick="closePopUp()">X</button>
+                <div class="right1">
+                    <h2 id="name"></h2>
+                    <form class="form" action="../pages/payment/templates/paymentPage.html">
+                        <select name="cake size" id="Size" class="field" onchange="totalIt()" required>
+                            <option disabled selected>Cake Size - Defualt 22cm</option>
+                            <option value="250">22 cm</option>
+                            <option value="400">30 cm</option>
+                        </select><br>
+                        <select name="cake flavor" class="field" required>
+                            <option disabled selected>Cream Flavor - Defualt Vanilla</option>
+                            <option>Nutella</option>
+                            <option>Vanilla</option>
+                            <option>Kinder</option>
+                            <option>Ferero</option>
+                            <option>Pretzel</option>
+                            <option>Salted Caramel</option>
+                            <option>Lotus</option>
+
+                        </select><br>
+
+                        <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="deuration color" class="field" required>
+                            <option disabled selected>Greeting Color</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                        </select><br>
+                        <div>
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element" value="100"
+                                    class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element" value="70"
+                                    class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                            <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
+                                    class="checkbox" type="checkbox" onclick="totalIt()" /></label>
+                        </div>
+                        <textarea style="resize:none" class="field"
+                            placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
+                        <h4>Total Price:<input value="" readonly="readonly" type="text" name="total" /></h4>
+                        <button name="total" class="btn" value="0">Payment</a></button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="footerContainer">
+            <div class="row">
+                <div class="footerCol">
+                    <h4>Company</h4>
+                    <ul>
+                        <li><a href="../Templates/About Us.html">About Us</a></li>
+                        <li><a href="Our Team.html">Our Team</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Terms & Conditions</h4>
+                    <ul>
+                        <li><a href="../Templates/Accessibility.html">Accessibility</a></li>
+                        <li><a href="../Templates/Privacy Policy.html">Privacy Policy</a></li>
+                    </ul>
+                </div>
+                <div class="footerCol">
+                    <h4>Follow Us</h4>
+                    <div class="socialLinks">
+                        <a href="#"><i class="fab fa-facebook-f"></i></li></a>
+                        <a href="#"><i class="fab fa-instagram"></i></li></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></li></a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        </div>
+    </footer>
+</body>
+
+</html>
