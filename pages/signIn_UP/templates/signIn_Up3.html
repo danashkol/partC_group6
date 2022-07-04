@@ -1,57 +1,7 @@
+{% extends 'base.html' %}
 
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sign In/Log In</title>
-    <link rel="stylesheet" href="../static/styleGeneral.css">
-    <link rel="stylesheet" href="../static/css_signIn3.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-    <script defer src="../static/signIn3.js"></script>
-</head>
-<body>
-<nav class="navigationBar">
-    <div class="logo">
-        <img src="../../../Static/logo%20without.jpg">
-    </div>
-    <ul>
-        <li><a href="../../../Templates/home%20page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
-        <li><a href="">Sign In/Log In</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
-        <li><a >Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
-            <div class="subMenu1">
-                <ul>
-                    <li><a href="../../../Templates/girl%20cakes.html">Girl Cakes</a></li>
-                    <li><a href="../../../Templates/boy%20cakes.html">Boy Cakes</a></li>
-                    <li><a href="../../../Templates/adult%20cakes.html">Adult Cakes</a></li>
-                    <li><a href="../../../Templates/num%20_%20letter%20cakes.html">Number & Letter Cakes</a></li>
-                </ul>
-            </div>
-        </li>
-        <i class="fa-duotone fa-rings-wedding"></i>
-        <li><a >Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
-            <div class="subMenu1">
-                <ul>
-                    <li><a href="../../../Templates/wedding%20cakes.HTML">Wedding Cakes</a></li>
-                    <li><a href="../../../Templates/ring%20cakes.html">Ring Cakes</a></li>
-                    <li><a href="../../../Templates/bachlorette%20party%20cakes.html">Bachelorette Party Cakes</a></li>
-                </ul>
-            </div>
-        </li>
-        <li><a >Our Classics</a><i class="fa fas fa-chart-pie"></i>
-            <div class="subMenu1">
-                <ul>
-                    <li><a href="../../../Templates/pies.html">Pies</a></li>
-                    <li><a href="../../../Templates/yeast%20cakes.html">Yeast Cakes</a></li>
-                    <li><a href="../../../Templates/special%20cakes.html">Our Specials</a></li>
-                </ul>
-            </div>
-        </li>
-        <li><a href="../../../Templates/Contact%20Us.html">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
-    </ul>
-</nav>
+{% block main %}
+        <link rel="stylesheet" href="../static/css_signIn3.css">
 
 <section class="user">
     <div class="user_options-container">
@@ -119,36 +69,5 @@
         {% if message_i %}
             <h3 >{{ message_i }}</h3>
         {% endif %}
-<footer class="footer">
-    <div class="footerContainer">
-        <div class="row">
-            <div class="footerCol">
-                <h4>Company</h4>
-                <ul>
-                    <li><a href="../../../Templates/About%20Us.html">About Us</a></li>
-                    <li><a href="../../../Templates/Our%20Team.html">Our Team</a></li>
-                </ul>
-            </div>
-            <div class="footerCol">
-                <h4>Terms & Conditions</h4>
-                <ul>
-                    <li><a href="../../../Templates/Accessibility.html">Accessibility</a></li>
-                    <li><a href="../../../Templates/Privacy%20Policy.html">Privacy Policy</a></li>
-                </ul>
-            </div>
-            <div class="footerCol">
-                <h4>Follow Us</h4>
-                <div class="socialLinks">
-                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                    <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                </div>
-            </div>
-        </div>
-    </div>
-    </div>
-</footer>
 
-
-</body>
-</html>
+{% endblock %}

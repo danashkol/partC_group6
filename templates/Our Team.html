@@ -1,55 +1,8 @@
-<!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link rel="stylesheet" href="../Static/styleGeneral.css">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-        <link rel="stylesheet" href="../Static/styleOurTeam.css">
-        <title>Our Team</title>
-    </head>
-    <body>
-        <nav class="navigationBar">
-            <div class="logo">
-                <img src="../Static/logo without.jpg">
-            </div>
-            <ul>
-                <li><a href="home page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
-                <li><a href="../pages/signIn_UP/templates/signIn_Up3.html">Sign In/Log In</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
-                <li><a >Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="girl cakes.html">Girl Cakes</a></li>
-                            <li><a href="boy cakes.html">Boy Cakes</a></li>
-                            <li><a href="adult cakes.html">Adult Cakes</a></li>
-                            <li><a href="num _ letter cakes.html">Number & Letter Cakes</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <i class="fa-duotone fa-rings-wedding"></i>
-                <li><a >Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="wedding cakes.HTML">Wedding Cakes</a></li>
-                            <li><a href="ring cakes.html">Ring Cakes</a></li>
-                            <li><a href="bachlorette party cakes.html">Bachelorette Party Cakes</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a >Our Classics</a><i class="fa fas fa-chart-pie"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="pies.html">Pies</a></li>
-                            <li><a href="yeast cakes.html">Yeast Cakes</a></li>
-                            <li><a href="special cakes.html">Our Specials</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a href="Contact Us.html">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
-            </ul>
-        </nav>
+{% extends 'base.html' %}
+
+{% block main %}
+        <link rel="stylesheet" href="../static/styleOurTeam.css">
+
         <div class="container2">
             <div class="header"><h1>Our Team</h1></div>
             <div class="sub-container">
@@ -99,34 +52,4 @@
             </div>
         </div>
         </div>
-        <footer class="footerOurTeam">
-            <div class="footerContainerOurTeam">
-                <div class="rowOurTeam">
-                    <div class="footerColOurTeam">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="../Templates/About Us.html">About Us</a></li>
-                            <li><a href="Our Team.html">Our Team</a></li>
-                        </ul>
-                    </div>
-                    <div class="footerColOurTeam">
-                        <h4>Terms & Conditions</h4>
-                        <ul>
-                            <li><a href="../Templates/Accessibility.html">Accessibility</a></li>
-                            <li><a href="../Templates/Privacy Policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footerColOurTeam">
-                        <h4>Follow Us</h4>
-                        <div class="socialLinks">
-                            <a href="#"><i class="fab fa-facebook-f"></i></li></a>
-                            <a href="#"><i class="fab fa-instagram"></i></li></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></li></a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </body>
-    </html>
+{% endblock %}

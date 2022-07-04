@@ -1,60 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+{% extends 'base.html' %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Home Page</title>
+{% block main %}
     <link rel="stylesheet" href="../static/styleHome.css">
-    <link rel="stylesheet" href="../static/styleGeneral.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-    <script src="../Static/functions.js"></script>
-</head>
+    <body id="body" onload="categoryName()">
 
-<body id="body" onload="categoryName()">
-    <nav class="navigationBar">
-        <div class="logo">
-            <img src="../Static/logo without.jpg">
-        </div>
-        <ul>
-            <li><a href="home page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
-             <li><a href="/signIn_Up">Sign In/Sign Up</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
-            <li><a >Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
-                <div class="subMenu1">
-                    <ul>
-                        <li><a href="girl cakes.html">Girl Cakes</a></li>
-                        <li><a href="boy cakes.html">Boy Cakes</a></li>
-                        <li><a href="adult cakes.html">Adult Cakes</a></li>
-                        <li><a href="num _ letter cakes.html">Number & Letter Cakes</a></li>
-                    </ul>
-                </div>
-            </li>
-            <i class="fa-duotone fa-rings-wedding"></i>
-            <li><a >Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
-                <div class="subMenu1">
-                    <ul>
-                        <li><a href="wedding cakes.HTML">Wedding Cakes</a></li>
-                        <li><a href="ring cakes.html">Ring Cakes</a></li>
-                        <li><a href="bachlorette party cakes.html">Bachelorette Party Cakes</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a >Our Classics</a><i class="fa fas fa-chart-pie"></i>
-                <div class="subMenu1">
-                    <ul>
-                        <li><a href="pies.html">Pies</a></li>
-                        <li><a href="yeast cakes.html">Yeast Cakes</a></li>
-                        <li><a href="special cakes.html">Our Specials</a></li>
-                    </ul>
-                </div>
-            </li>
-            <li><a href="Contact Us.html">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
-        </ul>
-    </nav>
-   
     <div class="top">
         <h1>Welcome To MY CAKE</h1>
         <h3>Choose a Cake And Custome It To Your Own Preferences</h3>
@@ -62,52 +11,52 @@
     <div class="photosCategory" id="photosCategory">
         <div class="pic Girls">
             <h3 class="categoryName">Girl Cakes</h3>
-            <a href="girl cakes.html"><img id="hh"src="../Static/girlcakes/girl ice cream cake.jpg" alt="Girl Cakes"></a>
+            <a href="girl cakes.html"><img id="hh"src="../static/girlcakes/girl ice cream cake.jpg" alt="Girl Cakes"></a>
         </div>
         <div class="pic Boys">
             <h3 class="categoryName">Boy Cakes</h3>
-            <a href="boy cakes.html"><img id="hh" src="../Static/boy cakes/boys teddy bear.jpg" alt="Boy Cakes"></a>
+            <a href="boy cakes.html"><img id="hh" src="../static/boy cakes/boys teddy bear.jpg" alt="Boy Cakes"></a>
         </div>
         <div class="pic adult">
             <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../Static/adult cakes/popcorn cake.jpeg" alt="Adult Cakes"></a>
+            <a href="adult cakes.html"><img src="../static/adult cakes/popcorn cake.jpeg" alt="Adult Cakes"></a>
         </div>
         <div class="pic pies">
             <h3 class="categoryName">Pies</h3>
-            <a href="pies.html"><img src="../Static/pies/lemonPie.jpeg" alt="Pies"></a>
+            <a href="pies.html"><img src="../static/pies/lemonPie.jpeg" alt="Pies"></a>
         </div>
         <div class="pic bachlorette">
             <h3 class="categoryName">Bachelorette Party Cakes</h3>
-            <a href="bachlorette party cakes.html"><img src="../Static/bachlorette cakes/barbie marshmellow cake.jpg" alt="Bachelorette Cakes"></a>
+            <a href="bachlorette party cakes.html"><img src="../static/bachlorette cakes/barbie marshmellow cake.jpg" alt="Bachelorette Cakes"></a>
         </div>
         <div class="pic num_letter">
             <h3 class="categoryName">Number & Letter Cakes</h3>
-            <a href="num _ letter cakes.html"><img src="../Static/Num&Letter cakes/chocolate number cake.jpeg"
+            <a href="num _ letter cakes.html"><img src="../static/Num&Letter cakes/chocolate number cake.jpeg"
                 alt="Number & Letter Cakes"></a>
         </div>
         <div class="pic wedding">
             <h3 class="categoryName">Wedding Cakes</h3>
-            <a href="wedding cakes.HTML"><img src="../Static/wedding cakes/white flower wedding cake.jpeg" alt="Wedding Cakes"></a>
+            <a href="wedding cakes.HTML"><img src="../static/wedding cakes/white flower wedding cake.jpeg" alt="Wedding Cakes"></a>
         </div>
         <div class="pic yeast">
             <h3 class="categoryName">Yeast Cakes</h3>
-            <a href="yeast cakes.html"><img src="../Static/yeast cakes/chocolate yeast cale.jpeg" alt="Yeast Cakes"></a>
+            <a href="yeast cakes.html"><img src="../static/yeast cakes/chocolate yeast cale.jpeg" alt="Yeast Cakes"></a>
         </div>
         <div class="pic rings">
             <h3 class="categoryName">Ring Cakes</h3>
-            <a href="ring cakes.html"><img src="../Static/ring cakes/2 level ring cake.jpeg" alt="Ring Cakes"></a>
+            <a href="ring cakes.html"><img src="../static/ring cakes/2 level ring cake.jpeg" alt="Ring Cakes"></a>
         </div>
         <div class="pic adult">
             <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../Static/adult cakes/ferero cake.jpeg" alt="Adult Cakes"></a>
+            <a href="adult cakes.html"><img src="../static/adult cakes/ferero cake.jpeg" alt="Adult Cakes"></a>
         </div>
         <div class="pic adult">
             <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../Static/adult cakes/Mcdonalds cake.jpeg" alt="Adult Cakes"></a>
+            <a href="adult cakes.html"><img src="../static/adult cakes/Mcdonalds cake.jpeg" alt="Adult Cakes"></a>
         </div>
         <div class="pic adult">
             <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../Static/adult cakes/tricolad cake.jpeg" alt="adult"></a>
+            <a href="adult cakes.html"><img src="../static/adult cakes/tricolad cake.jpeg" alt="adult"></a>
         </div>
     </div>
     <div class="section2">
@@ -145,35 +94,6 @@
         <h2>MyCake Team</h2>
     </div>
 
-    <footer class="footerHome">
-        <div class="footerContainerHome">
-            <div class="rowHome">
-                <div class="footerColHome">
-                    <h4>Company</h4>
-                    <ul>
-                        <li><a href="../Templates/About Us.html">About Us</a></li>
-                        <li><a href="Our Team.html">Our Team</a></li>
-                    </ul>
-                </div>
-                <div class="footerColHome">
-                    <h4>Terms & Conditions</h4>
-                    <ul>
-                        <li><a href="../Templates/Accessibility.html">Accessibility</a></li>
-                        <li><a href="../Templates/Privacy Policy.html">Privacy Policy</a></li>
-                    </ul>
-                </div>
-                <div class="footerColHome">
-                    <h4>Follow Us</h4>
-                    <div class="socialLinksHome">
-                        <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                        <li><a href="#"><i class="fab fa-instagram"></i></a></li>
-                        <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </footer>
 </body>
 
-</html>
+{% endblock %}

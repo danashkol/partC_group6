@@ -1,104 +1,24 @@
-    <!DOCTYPE html>
-    <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <title>Contact Us</title>
-        <link rel="stylesheet" type="text/css" href="../Static/styleGeneral.css">
-        <link rel="stylesheet" href="../Static/styleContact.css">
-        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-    </head>
-    <body>
-        <nav class="navigationBar">
-            <div class="logo">
-                <img src="../Static/logo without.jpg">
-            </div>
-            <ul>
-                <li><a href="home page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
-                <li><a href="../pages/signIn_UP/templates/signIn_Up3.html">Sign In/Log In</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
-                <li><a >Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="girl cakes.html">Girl Cakes</a></li>
-                            <li><a href="boy cakes.html">Boy Cakes</a></li>
-                            <li><a href="adult cakes.html">Adult Cakes</a></li>
-                            <li><a href="num _ letter cakes.html">Number & Letter Cakes</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <i class="fa-duotone fa-rings-wedding"></i>
-                <li><a >Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="wedding cakes.HTML">Wedding Cakes</a></li>
-                            <li><a href="ring cakes.html">Ring Cakes</a></li>
-                            <li><a href="bachlorette party cakes.html">Bachelorette Party Cakes</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a >Our Classics</a><i class="fa fas fa-chart-pie"></i>
-                    <div class="subMenu1">
-                        <ul>
-                            <li><a href="pies.html">Pies</a></li>
-                            <li><a href="yeast cakes.html">Yeast Cakes</a></li>
-                            <li><a href="special cakes.html">Our Specials</a></li>
-                        </ul>
-                    </div>
-                </li>
-                <li><a class="active" href="#">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
-            </ul>
-        </nav>
-        <div class="container">
-            <div class="contact-box">
-                <div class="left"></div>
-                <div class="right">
-                    <h2>Contact Us</h2>
-                        <form action="home page.html">
-                        <input type="text" class="field" placeholder="Your Name" required>
-                        <input placeholder="Your Birthdate" class="field" type="text" onfocus="(this.type='date')" id="date" required>
-                        <input type="email" class="field" id="email" placeholder="Your Email" required>
-                        <input type="Phone" class="field" placeholder="Your Phone" minlength="10" maxlength="10" pattern="[0-9]+" required >
-                        <textarea class="field area" placeholder="Message" required></textarea>
-                        <label for="gender" class="field2">Gender:</label>
-                        <input type="radio" name="gender" class="field2" value="Male">Male  
-                        <input type="radio" name="gender" class="field2" value="Female">Female
-                        <button class="btn">Send</button>
-                    </form>
-                </div>
+{% extends 'base.html' %}
+
+{% block main %}
+    <link rel="stylesheet" href="../static/styleContact.css">
+    <div class="container">
+        <div class="contact-box">
+            <div class="left"></div>
+            <div class="right">
+                <h2>Contact Us</h2>
+                <form action="home page.html">
+                    <input type="text" class="field" placeholder="Your Name" required>
+                    <input placeholder="Your Birthdate" class="field" type="text" onfocus="(this.type='date')" id="date" required>
+                    <input type="email" class="field" id="email" placeholder="Your Email" required>
+                    <input type="Phone" class="field" placeholder="Your Phone" minlength="10" maxlength="10" pattern="[0-9]+" required >
+                    <textarea class="field area" placeholder="Message" required></textarea>
+                    <label for="gender" class="field2">Gender:</label>
+                    <input type="radio" name="gender" class="field2" value="Male">Male
+                    <input type="radio" name="gender" class="field2" value="Female">Female
+                    <button class="btn">Send</button>
+                </form>
             </div>
         </div>
-
-   
-        <footer class="footer">
-            <div class="footerContainer">
-                <div class="row">
-                    <div class="footerCol">
-                        <h4>Company</h4>
-                        <ul>
-                            <li><a href="../Templates/About Us.html">About Us</a></li>
-                            <li><a href="Our Team.html">Our Team</a></li>
-                        </ul>
-                    </div>
-                    <div class="footerCol">
-                        <h4>Terms & Conditions</h4>
-                        <ul>
-                            <li><a href="../Templates/Accessibility.html">Accessibility</a></li>
-                            <li><a href="../Templates/Privacy Policy.html">Privacy Policy</a></li>
-                        </ul>
-                    </div>
-                    <div class="footerCol">
-                        <h4>Follow Us</h4>
-                        <div class="socialLinks">
-                            <a href="#"><i class="fab fa-facebook-f"></i></li></a>
-                            <a href="#"><i class="fab fa-instagram"></i></li></a>
-                            <a href="#"><i class="fab fa-linkedin-in"></i></li></a>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-            </div>
-        </footer>
-    </body>
-    </html>
+    </div>
+{% endblock %}
