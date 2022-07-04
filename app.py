@@ -9,7 +9,7 @@ def interact_db(query, query_type: str):
     return_value = False
     connection = mysql.connector.connect(host='localhost',
                                          user='root',
-                                         passwd='Root',
+                                         passwd='Arbesfeld@123',
                                          database='project_db')
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
@@ -40,7 +40,8 @@ app.register_blueprint(signIn_Up)
 from pages.payment.payment import payment
 app.register_blueprint(payment)
 
-
+from pages.contact_us.contact_us import contact_us
+app.register_blueprint(contact_us)
 
 app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
@@ -91,9 +92,6 @@ def yeastCakes():
 def specialCakes():
     return render_template('special cakes.html')
 
-@app.route('/contactUs')
-def contactUs():
-    return render_template('Contact Us.html')
 
 @app.route('/accessibility')
 def accessibility():

@@ -9,7 +9,6 @@ signIn_Up = Blueprint('signIn_Up', __name__,
                          template_folder='templates')
 
 
-
 @signIn_Up.route('/signIn_Up')
 def signIn_Up_main():
     return render_template('signIn_Up3.html')
