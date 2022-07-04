@@ -95,6 +95,23 @@ def specialCakes():
 def contactUs():
     return render_template('Contact Us.html')
 
+@app.route('/accessibility')
+def accessibility():
+    return render_template('Accessibility.html')
+
+@app.route('/aboutUs')
+def aboutUs():
+    return render_template('About Us.html')
+
+@app.route('/privacyPolicy')
+def privacyPolicy():
+    return render_template('Privacy Policy.html')
+
+@app.route('/ourTeam')
+def ourTeam():
+    return render_template('Our Team.html')
+
+
 
 if __name__ == '__main__':
     app.run()
