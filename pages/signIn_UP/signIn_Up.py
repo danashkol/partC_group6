@@ -37,27 +37,22 @@ def userPassExist_func(username, password):
 
 @signIn_Up.route('/insert_costumer', methods=['POST'])
 def insert_user():
-    username = request.form['username']
-    fullName = request.form['fullName']
-    email = request.form['email']
-    password = request.form['password']
-    userExists = userExist_func(username)
-    query = 'select * from costumers'
-    users_list = interact_db(query, query_type='fetch')
-    if userExists == True:
-        return render_template('signIn_Up3.html', message_i='This Username Alraedy Exists. Please Try Again',
-                               users=users_list)
-    if userExists == False:
-        if username == '':
-            return render_template('signIn_Up3.html', message_i='Please Enter A Unique Username', users=users_list)
-        else:
-            query = "INSERT INTO costumers( username, fullName, email, password) VALUES ('%s', '%s','%s', '%s')" % (
-             username, fullName, email, password)
-            interact_db(query=query, query_type='commit')
-            query = 'select * from costumers'
-            users_list = interact_db(query, query_type='fetch')
-            return render_template('signIn_Up3.html', message_i='User Added Successfully', users=users_list)
 
+    username = request.form['username']
+    query = "select username from costumers where username='%s'" % username
+    user = interact_db(query, query_type='fetch')
+    if not user:
+        fullName = request.form['fullName']
+        email = request.form['email']
+        password = request.form['password']
+        query = "INSERT INTO costumers( username, fullName, email, password) VALUES ('%s', '%s','%s', '%s')" % (
+        username, fullName, email, password)
+        interact_db(query=query, query_type='commit')
+        query = 'select * from costumers'
+        users_list = interact_db(query, query_type='fetch')
+        return render_template('signIn_Up3.html', message_i='User Added Successfully', users=users_list)
+    else:
+        return render_template('signIn_Up3.html', message_i='This Username Alraedy Exists. Please Try Again')
 @signIn_Up.route('/logIn', methods=['GET', 'POST'])
 def logIn_func():
     if request.method == 'POST':
