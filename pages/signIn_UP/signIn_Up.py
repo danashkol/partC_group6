@@ -37,7 +37,6 @@ def userPassExist_func(username, password):
 
 @signIn_Up.route('/insert_costumer', methods=['POST'])
 def insert_user():
-
     username = request.form['username']
     query = "select username from costumers where username='%s'" % username
     user = interact_db(query, query_type='fetch')
@@ -46,28 +45,41 @@ def insert_user():
         email = request.form['email']
         password = request.form['password']
         query = "INSERT INTO costumers( username, fullName, email, password) VALUES ('%s', '%s','%s', '%s')" % (
-        username, fullName, email, password)
+            username, fullName, email, password)
         interact_db(query=query, query_type='commit')
-        query = 'select * from costumers'
-        users_list = interact_db(query, query_type='fetch')
-        return render_template('signIn_Up3.html', message_i='User Added Successfully', users=users_list)
+        return render_template('signIn_Up3.html', message_i='User Added Successfully')
     else:
         return render_template('signIn_Up3.html', message_i='This Username Alraedy Exists. Please Try Again')
+
 @signIn_Up.route('/logIn', methods=['GET', 'POST'])
 def logIn_func():
     if request.method == 'POST':
         username = request.form['username']
         password = request.form['password']
-        userExist = userPassExist_func(username,password)
-        if userExist:
+        query = "select username from costumers where username='%s' and password ='%s'" % (username, password)
+        user = interact_db(query, query_type='fetch')
+        print(user[0])
+        if user:
                 session['logedin'] = True
+                session['username'] = user[0]
                 return render_template('signIn_Up3.html',
-                                       logIn_message='Log In succeeded!'
+                                       logIn_message='Log In succeeded!',
+                                       user=user
                                        )
         else:
             return render_template('signIn_Up3.html',
                                    logIn_message='No Matching Username, Please Sign In')
     return render_template('signIn_Up3.html', logIn_message='Log In did not work')
+
+@signIn_Up.route('/log_out')
+def logout_func():
+    session['logedin'] = False
+    session.clear()
+    return render_template('signIn_Up3.html')
+
+
+
+
 
 #
 # @signIn_Up.route('/logIn', methods=['GET', 'POST'])

@@ -47,7 +47,13 @@ height: 100%;
     float: left;
     width: 80px;
 }
+.loginName{
+    font-size: 15px;
+    color: rgb(245, 198, 217);
+    float: left;
+    padding-left: .5%;
 
+}
 .navigationBar .fa{
     margin-left: 8px;
 }
