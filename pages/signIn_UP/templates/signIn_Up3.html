@@ -1,74 +1,78 @@
 {% extends 'base.html' %}
 
 {% block main %}
-        <link rel="stylesheet" href="../static/css_signIn3.css">
-        <script defer src="../static/signIn3.js"></script>
+    <link rel="stylesheet" href="../static/css_signIn3.css">
+    <script defer src="../static/signIn3.js"></script>
 
-<section class="user">
-    <div class="user_options-container">
-        <div class="user_options-text">
-            <div class="user_options-unregistered">
-                <h2 class="user_unregistered-title">Don't have an account yet?</h2>
-                <p class="user_unregistered-text">Sign up to MyCake now! !</p>
-                <button class="user_unregistered-signup" id="signup-button">Sign up</button>
+
+
+    <section class="user">
+        <div class="user_options-container">
+            <div class="user_options-text">
+                <div class="user_options-unregistered">
+                    <h2 class="user_unregistered-title">Don't have an account yet?</h2>
+                    <p class="user_unregistered-text">Sign up to MyCake now! !</p>
+                    <button class="user_unregistered-signup" id="signup-button">Sign up</button>
+                </div>
+
+                <div class="user_options-registered">
+                    <h2 class="user_registered-title">Already have an account!</h2>
+                    <p class="user_registered-text">Get started and choose your dream cake..</p>
+                    <button class="user_registered-login" id="login-button">Login</button>
+                </div>
             </div>
 
-            <div class="user_options-registered">
-                <h2 class="user_registered-title">Already have an account!</h2>
-                <p class="user_registered-text">Get started and choose your dream cake..</p>
-                <button class="user_registered-login" id="login-button">Login</button>
+            <div class="user_options-forms" id="user_options-forms">
+                <div class="user_forms-login">
+                    <h2 class="forms_title">Log In</h2>
+                    <h3>{{ logIn_message }}</h3><br>
+                    <form action="/logIn" class="forms_form" method="post">
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                <input type="text" name="username" placeholder="Username" class="forms_field-input"
+                                       required autofocus/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="text" name="password" placeholder="Password" class="forms_field-input"
+                                       required/>
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <button type="button" class="forms_buttons-forgot">Forgot password?</button>
+                            <input type="submit" value="Log In" class="forms_buttons-action">
+                        </div>
+                    </form>
+                </div>
+                <div class="user_forms-signup">
+                    <h2 class="forms_title">Sign Up</h2>
+                    <h3>{{ message_i }}</h3><br>
+                    <form action="/insert_costumer" method="post" class="forms_form">
+                        <fieldset class="forms_fieldset">
+                            <div class="forms_field">
+                                <input type="text" name="username" placeholder="Username" class="forms_field-input"
+                                       required/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="text" name="fullName" placeholder="Full Name" class="forms_field-input"
+                                       required/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="email" name="email" placeholder="Email" class="forms_field-input"
+                                       required/>
+                            </div>
+                            <div class="forms_field">
+                                <input type="password" name="password" placeholder="Password" class="forms_field-input"
+                                       required/>
+                            </div>
+                        </fieldset>
+                        <div class="forms_buttons">
+                            <input type="submit" value="Sign up" class="forms_buttons-action">
+                        </div>
+                    </form>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="user_options-forms" id="user_options-forms">
-            <div class="user_forms-login">
-                <h2 class="forms_title">Log In</h2>
-                <form action="/logIn" class="forms_form" method="post">
-                    <fieldset class="forms_fieldset">
-                        <div class="forms_field">
-                            <input type="text" name="username" placeholder="Username" class="forms_field-input" required autofocus />
-                        </div>
-                        <div class="forms_field">
-                            <input type="text" name="password" placeholder="Password" class="forms_field-input" required />
-                        </div>
-                    </fieldset>
-                    <div class="forms_buttons">
-                        <button type="button" class="forms_buttons-forgot">Forgot password?</button>
-                        <input type="submit" value="Log In" class="forms_buttons-action">
-                    </div>
-                </form>
-            </div>
-            <div class="user_forms-signup">
-                <h2 class="forms_title">Sign Up</h2>
-                <form action="/insert_costumer" method="post" class="forms_form" >
-                    <fieldset class="forms_fieldset">
-                        <div class="forms_field">
-                            <input type="text" name="username" placeholder="Username" class="forms_field-input" required />
-                        </div>
-                        <div class="forms_field">
-                            <input type="text" name="fullName" placeholder="Full Name" class="forms_field-input" required />
-                        </div>
-                        <div class="forms_field">
-                            <input type="email" name="email" placeholder="Email" class="forms_field-input" required />
-                        </div>
-                        <div class="forms_field">
-                            <input type="password" name="password" placeholder="Password" class="forms_field-input" required />
-                        </div>
-                    </fieldset>
-                    <div class="forms_buttons">
-                        <input type="submit" value="Sign up" class="forms_buttons-action">
-                    </div>
-                </form>
-            </div>
-        </div>
-    </div>
-</section>
-
-        {% if logIn_message %}
-            <h3 >{{ logIn_message }}</h3>
-        {% endif %}
-        {% if message_i %}
-            <h3 >{{ message_i }}</h3>
-        {% endif %}
 
 {% endblock %}

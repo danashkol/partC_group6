@@ -58,18 +58,18 @@ def logIn_func():
         password = request.form['password']
         query = "select username from costumers where username='%s' and password ='%s'" % (username, password)
         user = interact_db(query, query_type='fetch')
-        print(user[0])
-        if user:
+        if len(user) > 0:
                 session['logedin'] = True
                 session['username'] = user[0]
-                return render_template('signIn_Up3.html',
+                return render_template('home page.html',
                                        logIn_message='Log In succeeded!',
                                        user=user
                                        )
         else:
             return render_template('signIn_Up3.html',
-                                   logIn_message='No Matching Username, Please Sign In')
-    return render_template('signIn_Up3.html', logIn_message='Log In did not work')
+                                    logIn_message='No Matching Username, Please Sign In'
+                                   )
+    return render_template('signIn_Up3.html')
 
 @signIn_Up.route('/log_out')
 def logout_func():
