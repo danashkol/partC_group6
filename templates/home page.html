@@ -8,64 +8,76 @@
         <h1>Welcome To MY CAKE</h1>
         <h3>Choose a Cake And Custome It To Your Own Preferences</h3>
     </div>
+
     <div class="photosCategory" id="photosCategory">
-        <div class="pic Girls">
-            <h3 class="categoryName">Girl Cakes</h3>
-            <a href="girl cakes.html"><img id="hh"src="../static/girlcakes/girl ice cream cake.jpg" alt="Girl Cakes"></a>
-        </div>
-        <div class="pic Boys">
-            <h3 class="categoryName">Boy Cakes</h3>
-            <a href="boy cakes.html"><img id="hh" src="../static/boy cakes/boys teddy bear.jpg" alt="Boy Cakes"></a>
-        </div>
-        <div class="pic adult">
-            <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../static/adult cakes/popcorn cake.jpeg" alt="Adult Cakes"></a>
-        </div>
-        <div class="pic pies">
-            <h3 class="categoryName">Pies</h3>
-            <a href="pies.html"><img src="../static/pies/lemonPie.jpeg" alt="Pies"></a>
-        </div>
-        <div class="pic bachlorette">
-            <h3 class="categoryName">Bachelorette Party Cakes</h3>
-            <a href="bachlorette party cakes.html"><img src="../static/bachlorette cakes/barbie marshmellow cake.jpg" alt="Bachelorette Cakes"></a>
-        </div>
-        <div class="pic num_letter">
-            <h3 class="categoryName">Number & Letter Cakes</h3>
-            <a href="num _ letter cakes.html"><img src="../static/Num&Letter cakes/chocolate number cake.jpeg"
-                alt="Number & Letter Cakes"></a>
-        </div>
-        <div class="pic wedding">
-            <h3 class="categoryName">Wedding Cakes</h3>
-            <a href="wedding cakes.HTML"><img src="../static/wedding cakes/white flower wedding cake.jpeg" alt="Wedding Cakes"></a>
-        </div>
-        <div class="pic yeast">
-            <h3 class="categoryName">Yeast Cakes</h3>
-            <a href="yeast cakes.html"><img src="../static/yeast cakes/chocolate yeast cale.jpeg" alt="Yeast Cakes"></a>
-        </div>
-        <div class="pic rings">
-            <h3 class="categoryName">Ring Cakes</h3>
-            <a href="ring cakes.html"><img src="../static/ring cakes/2 level ring cake.jpeg" alt="Ring Cakes"></a>
-        </div>
-        <div class="pic adult">
-            <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../static/adult cakes/ferero cake.jpeg" alt="Adult Cakes"></a>
-        </div>
-        <div class="pic adult">
-            <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../static/adult cakes/Mcdonalds cake.jpeg" alt="Adult Cakes"></a>
-        </div>
-        <div class="pic adult">
-            <h3 class="categoryName">Adult Cakes</h3>
-            <a href="adult cakes.html"><img src="../static/adult cakes/tricolad cake.jpeg" alt="adult"></a>
-        </div>
+        {% for C in CList %}
+            <div class="pic">
+                <h3 class="categoryName">>"{{ C.name }}"</h3>
+                <a href="{{ C.link }}"><img id="hh" src="{{ C.pic }}" alt="{{ C.name }}"></a>
+            </div>
+        {% endfor %}
     </div>
+
+
+    {#    <div class="photosCategory" id="photosCategory">#}
+    {#        <div class="pic Girls">#}
+    {#            <h3 class="categoryName">Girl Cakes</h3>#}
+    {#            <a href="girl cakes.html"><img id="hh" src="../static/girlcakes/girl ice cream cake.jpg"#}
+    {#                                           alt="Girl Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic Boys">#}
+    {#            <h3 class="categoryName">Boy Cakes</h3>#}
+    {#            <a href="boy cakes.html"><img id="hh" src="../static/boy cakes/boys teddy bear.jpg" alt="Boy Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic adult">#}
+    {#            <h3 class="categoryName">Adult Cakes</h3>#}
+    {#            <a href="adult cakes.html"><img src="../static/adult cakes/popcorn cake.jpeg" alt="Adult Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic pies">#}
+    {#            <h3 class="categoryName">Pies</h3>#}
+    {#            <a href="pies.html"><img src="../static/pies/lemonPie.jpeg" alt="Pies"></a>#}
+    {#        </div>#}
+    {#        <div class="pic bachlorette">#}
+    {#            <h3 class="categoryName">Bachelorette Party Cakes</h3>#}
+    {#            <a href="bachlorette party cakes.html"><img src="../static/bachlorette cakes/barbie marshmellow cake.jpg" alt="Bachelorette Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic num_letter">#}
+    {#            <h3 class="categoryName">Number & Letter Cakes</h3>#}
+    {#            <a href="num _ letter cakes.html"><img src="../static/Num&Letter cakes/chocolate number cake.jpeg"#}
+    {#                alt="Number & Letter Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic wedding">#}
+    {#            <h3 class="categoryName">Wedding Cakes</h3>#}
+    {#            <a href="wedding cakes.HTML"><img src="../static/wedding cakes/white flower wedding cake.jpeg" alt="Wedding Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic yeast">#}
+    {#            <h3 class="categoryName">Yeast Cakes</h3>#}
+    {#            <a href="yeast cakes.html"><img src="../static/yeast cakes/chocolate yeast cale.jpeg" alt="Yeast Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic rings">#}
+    {#            <h3 class="categoryName">Ring Cakes</h3>#}
+    {#            <a href="ring cakes.html"><img src="../static/ring cakes/2 level ring cake.jpeg" alt="Ring Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic adult">#}
+    {#            <h3 class="categoryName">Adult Cakes</h3>#}
+    {#            <a href="adult cakes.html"><img src="../static/adult cakes/ferero cake.jpeg" alt="Adult Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic adult">#}
+    {#            <h3 class="categoryName">Adult Cakes</h3>#}
+    {#            <a href="adult cakes.html"><img src="../static/adult cakes/Mcdonalds cake.jpeg" alt="Adult Cakes"></a>#}
+    {#        </div>#}
+    {#        <div class="pic adult">#}
+    {#            <h3 class="categoryName">Adult Cakes</h3>#}
+    {#            <a href="adult cakes.html"><img src="../static/adult cakes/tricolad cake.jpeg" alt="adult"></a>#}
+    {#        </div>#}
+    {#    </div>#}
     <div class="section2">
         <div class = "recommendation">
-            <h3>"I orderd a cake for my wedding a few days before, because my former suppliar had to cancle at the last  
-                 minute. Dana from my cake disigned me the cake of my dreams and it turned out more beutifull than I could imagine!"  </h3>
+            <h3>"I orderd a cake for my wedding a few days before, because my former suppliar had to cancle at the last
+                minute. Dana from my cake disigned me the cake of my dreams and it turned out more beutifull than I could imagine!"  </h3>
         </div>
         <div class = "recommendation">
-            <h3>"My best friend had a bachlorette party, and I was responsible for the cake. Another friend recommended 
+            <h3>"My best friend had a bachlorette party, and I was responsible for the cake. Another friend recommended
                 me about MyCake and they made me the most amazing cake! It was the center of attention and a magor success"  </h3>
         </div>
         <div class = "recommendation">
@@ -94,6 +106,6 @@
         <h2>MyCake Team</h2>
     </div>
 
-</body>
+    </body>
 
 {% endblock %}

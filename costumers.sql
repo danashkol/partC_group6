@@ -1,15 +1,11 @@
-CREATE TABLE costumers (
-
-username varchar(255) primary key ,
-
-fullName varchar(255),
-
-email text,
-
-password varchar(120)
-
+create table costumers
+(
+    username varchar(255) not null
+        primary key,
+    fullName varchar(255) null,
+    email    text         null,
+    password varchar(120) null
 );
-
 
 INSERT INTO project_db.costumers (username, fullName, email, password) VALUES ('Dana', 'sds', 'ccsd@dsf.zcs', '1');
 INSERT INTO project_db.costumers (username, fullName, email, password) VALUES ('Dana1', 'dana shkol', 'sdcfsn@sdcs.xqw', '1');

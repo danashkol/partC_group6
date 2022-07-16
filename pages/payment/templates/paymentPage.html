@@ -1,66 +1,24 @@
-<!DOCTYPE html>
-<html>
+{% extends 'base.html' %}
 
+{% block main %}
 <head>
   <title>Payment</title>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-  <link rel="stylesheet" href="../Static/css_paymentPage.css">
+  <link rel="stylesheet" href="../static/css_paymentPage.css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-  <link rel="stylesheet" href="../Static/styleGeneral.css">
-  <script defer src="../Static/functions.js"></script>
 </head>
 
 <body>
-  <form id="payment" class="form"></form>
-  <nav class="navigationBar">
-    <div class="logo">
-      <img src="../Static/logo without.jpg">
-    </div>
-    <ul>
-      <li><a href="../../../templates/home%20page.html">Home Page</a><i class="fa fa-solid fa-house"></i></li>
-      <li><a href="../../signIn_UP/templates/signIn_Up3.html">Sign In/Log In</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
-      <li><a>Birthday Cakes</a><i class="fa fa-solid fa-cake-candles"></i>
-        <div class="subMenu1">
-          <ul>
-            <li><a href="../../../templates/girl%20cakes.html">Girl Cakes</a></li>
-            <li><a href="../../../templates/boy%20cakes.html">Boy Cakes</a></li>
-            <li><a href="../../../templates/adult%20cakes.html">Adult Cakes</a></li>
-            <li><a href="../../../templates/num%20_%20letter%20cakes.html">Number & Letter Cakes</a></li>
-          </ul>
-        </div>
-      </li>
-      <i class="fa-duotone fa-rings-wedding"></i>
-      <li><a>Wedding Cakes</a><i class="fa fa-solid fa-gem"></i>
-        <div class="subMenu1">
-          <ul>
-            <li><a href="../../../templates/wedding%20cakes.HTML">Wedding Cakes</a></li>
-            <li><a href="../../../templates/ring%20cakes.html">Ring Cakes</a></li>
-            <li><a href="../../../templates/bachlorette%20party%20cakes.html">Bachelorette Party Cakes</a></li>
-          </ul>
-        </div>
-      </li>
-      <li><a>Our Classics</a><i class="fa fas fa-chart-pie"></i>
-        <div class="subMenu1">
-          <ul>
-            <li><a href="../../../templates/pies.html">Pies</a></li>
-            <li><a href="../../../templates/yeast%20cakes.html">Yeast Cakes</a></li>
-            <li><a href="../../../templates/special%20cakes.html">Our Specials</a></li>
-          </ul>
-        </div>
-      </li>
-      <li><a href="../../../templates/Contact%20Us.html">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
-    </ul>
-  </nav>
-  <main class="page payment-page">
+<main class="page payment-page">
     <section class="payment-form dark">
       <div class="container">
         <div class="block-heading">
           <h2>Payment</h2>
           <p>Thanks for showing interest at MyCake, we hope you managed to find a cake that meets your excpectations. Happy to be here for you at every occasion.</p>
         </div>
-        <form action="/insert_charge">
+        <form action="/insert_charge" method="post">
           <div class="products">
             <h3 class="title">Checkout</h3>
             <div class="item">
@@ -73,68 +31,40 @@
           <div class="card-details">
             <h3 class="title">Credit Card Details</h3>
             <div class="row">
-              <div class="form-group col-sm-7">
+              <div class="form-group">
                 <label for="card-holder" >Card Holder</label>
                 <input id="cardHolder" name="cardHolder" type="text" class="form-control" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1"   minlength="1" pattern="[A-Za-z]+">
               </div>
-              <div class="form-group col-sm-5">
+              <div class="form-group">
                 <label for="">Expiration Date</label>
-                <div class="input-group expiration-date">
-                  <input id="ExpiredM" name="expiredM" type="text" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1"  minlength="2" maxlength="2"  pattern="[0-9]+">
+                <div class="form-group">
+                  <input id="ExpiredM" name="expiredM" type="number" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1"  minlength="2" maxlength="2" min="00" max="12" >
                   <span class="date-separator">/</span>
-                  <input id="ExpiredY" name="expiredY" type="text" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1"  minlength="4" maxlength="4"  pattern="[0-9]+">
+                  <input id="ExpiredY" name="expiredY" type="number" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1"  minlength="4" maxlength="4" min="2022" max="2035" >
                 </div>
               </div>
-              <div class="form-group col-sm-8">
+              <div class="form-group">
                 <label for="card-number">Card Number</label>
                 <input id="card-number" name="cardNumber" type="text" class="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1"  minlength="16" maxlength="16"  pattern="[0-9]+">
               </div>
-              <div class="form-group col-sm-4">
+              <div class="form-group">
                 <label for="cvc">CVC</label>
                 <input id="cvc" type="text" name="cvc" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1" minlength="3" maxlength="3"  pattern="[0-9]+">
               </div>
-                <button  type="button" id="btn" class="button"  onclick="mymessage()   " >
-                <span class="button__text">Proceed</span>
-              </button>
+                <input type="submit" id="btn" class="button" value="Proceed">
               </div>
             </div>
-          </div>
         </form>
       </div>
     </section>
   </main>
-  <footer class="footer">
-    <div class="footerContainer">
-      <div class="row">
-        <div class="footerCol">
-          <h4>Company</h4>
-          <ul>
-            <li><a href="../Templates/About Us.html">About Us</a></li>
-            <li><a href="../../../templates/Our%20Team.html">Our Team</a></li>
-          </ul>
-        </div>
-        <div class="footerCol">
-          <h4>Terms & Conditions</h4>
-          <ul>
-            <li><a href="../Templates/Accessibility.html">Accessibility</a></li>
-            <li><a href="../Templates/Privacy Policy.html">Privacy Policy</a></li>
-          </ul>
-        </div>
-        <div class="footerCol">
-          <h4>Follow Us</h4>
-          <div class="socialLinks">
-            <a href="#"><i class="fab fa-facebook-f"></i></li></a>
-            <a href="#"><i class="fab fa-instagram"></i></li></a>
-            <a href="#"><i class="fab fa-linkedin-in"></i></li></a>
-          </div>
-        </div>
-      </div>
-    </div>
-    </div>
-  </footer>
+
 </body>
-<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+{#<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>#}
+{#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>#}
 </body>
 
-</html>
+        {% if message_p %}
+            <h3 >{{ message_p }}</h3>
+        {% endif %}
+{% endblock %}

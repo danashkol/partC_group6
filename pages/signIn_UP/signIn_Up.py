@@ -5,8 +5,8 @@ from flask import Blueprint, render_template, request, redirect, session, jsonif
 from app import interact_db
 
 signIn_Up = Blueprint('signIn_Up', __name__,
-                         static_folder='static',
-                         template_folder='templates')
+                      static_folder='static',
+                      template_folder='templates')
 
 
 @signIn_Up.route('/signIn_Up')
@@ -24,15 +24,15 @@ def userExist_func(username):
             return userExist
     return userExist
 
-def userPassExist_func(username, password):
-    userExist = False
-    query = 'select * from costumers'
-    users_list = interact_db(query, query_type='fetch')
-    for user in users_list:
-        if username == user.username and password == user.password:
-            userExist = True
-            return userExist
-    return userExist
+# def userPassExist_func(username, password):
+#     userExist = False
+#     query = 'select * from costumers'
+#     users_list = interact_db(query, query_type='fetch')
+#     for user in users_list:
+#         if username == user.username and password == user.password:
+#             userExist = True
+#             return userExist
+#     return userExist
 
 
 @signIn_Up.route('/insert_costumer', methods=['POST'])
@@ -59,15 +59,15 @@ def logIn_func():
         query = "select username from costumers where username='%s' and password ='%s'" % (username, password)
         user = interact_db(query, query_type='fetch')
         if len(user) > 0:
-                session['logedin'] = True
-                session['username'] = user[0]
-                return render_template('home page.html',
-                                       logIn_message='Log In succeeded!',
-                                       user=user
-                                       )
+            session['logedin'] = True
+            session['username'] = user[0]
+            print(session['username'])
+            return render_template('home page.html',
+                                   logIn_message='Log In succeeded!',
+                                   )
         else:
             return render_template('signIn_Up3.html',
-                                    logIn_message='No Matching Username, Please Sign In'
+                                   logIn_message='No Matching Username, Please Sign In'
                                    )
     return render_template('signIn_Up3.html')
 

@@ -2,6 +2,7 @@ from datetime import timedelta
 import mysql.connector
 import requests
 from flask import Blueprint, render_template, request, redirect, session, jsonify
+from app import interact_db
 
 
 payment = Blueprint('payment', __name__,
@@ -20,19 +21,10 @@ def insert_charge_func():
     expiredM = request.form['expiredM']
     expiredY = request.form['expiredY']
     cardNumber = request.form['cardNumber']
-    cvc=request.form['cvc']
-    query = 'select * from costumers'
-    users_list = interact_db(query, query_type='fetch')
-    if userExists == True:
-        return render_template('signIn_Up3.html', message_i='This Username Alraedy Exists. Please Try Again',
-                               users=users_list)
-    if userExists == False:
-        if username == '':
-            return render_template('signIn_Up3.html', message_i='Please Enter A Unique Username', users=users_list)
-        else:
-            query = "INSERT INTO costumers( username, fullName, email, password) VALUES ('%s', '%s','%s', '%s')" % (
-             username, fullName, email, password)
-            interact_db(query=query, query_type='commit')
-            query = 'select * from costumers'
-            users_list = interact_db(query, query_type='fetch')
-            return render_template('signIn_Up3.html', message_i='User Added Successfully', users=users_list)
+    cvc = request.form['cvc']
+    if not cardHolder or not cardNumber or not expiredY or not expiredY or not cvc :
+        return render_template('paymentPage.html', message_p='Some details are missing. Please fill all the fields')
+    query = "INSERT INTO payments(cardHolder, expiredM, expiredY, cardNumber, cvc ) VALUES ('%s', '%s','%s', '%s', '%s')" % (
+             cardHolder, expiredM, expiredY, cardNumber, cvc)
+    interact_db(query=query, query_type='commit')
+    return render_template('paymentPage.html', message_p='Payment completed Successfully')
