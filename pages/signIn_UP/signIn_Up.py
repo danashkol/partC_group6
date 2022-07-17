@@ -50,7 +50,6 @@ def insert_user():
         return render_template('signIn_Up3.html', message_i='User Added Successfully')
     else:
         return render_template('signIn_Up3.html', message_i='This Username Alraedy Exists. Please Try Again')
-
 @signIn_Up.route('/logIn', methods=['GET', 'POST'])
 def logIn_func():
     if request.method == 'POST':
@@ -61,10 +60,10 @@ def logIn_func():
         if len(user) > 0:
             session['logedin'] = True
             session['username'] = user[0]
-            print(session['username'])
-            return render_template('home page.html',
-                                   logIn_message='Log In succeeded!',
-                                   )
+            string = str(session['username'])
+            subString = string[14:-2]
+            session['username'] = subString
+            return redirect('/')
         else:
             return render_template('signIn_Up3.html',
                                    logIn_message='No Matching Username, Please Sign In'
@@ -133,7 +132,7 @@ def logout_func():
 #     cursor.close()
 #     return return_value
 
-@signIn_Up.route('/session')
-def session_func():
-    return jsonify(dict(session))
-
+# @signIn_Up.route('/session')
+# def session_func():
+#     return jsonify(dict(session))
+#

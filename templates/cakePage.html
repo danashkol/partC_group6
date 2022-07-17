@@ -6,25 +6,25 @@
             <div class="right">
                 <button id="close" onclick="closePopUp()">X</button>
                 <div class="right1">
-                    <h2 id="name"></h2>
-                    <form class="form" action="/payment">
+                    <h2 name ="cakeName" id="name"></h2>
+                    <form class="form" action="/insertOrder" method="post">
                         <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
-                            <option disabled selected>Cake Size - Defualt 24cm </option>
+                            <option disabled selected value="270">Cake Size - Default 24cm </option>
                             <option data-price="200" value="200">22 cm</option>
                             <option  data-price="270" value="270">24 cm</option>
                             <option  data-price="300" value="300">26 cm</option>
                         </select><br>
                         <select name="cake flavor" class="field" required>
-                            <option disabled selected>Cake Flavor - Defualt Vanilla</option>
+                            <option value="Vanilla" disabled selected>Cake Flavor - Default Vanilla</option>
                             <option>Nutella</option>
                             <option>Vanilla</option>
                             <option>Kinder</option>
                             <option>Pistachio</option>
                         </select><br>
 
-                        <input type="number" class="field" placeholder="Add Age" min="0">
-                        <select name="deuration color" class="field" required>
-                            <option disabled selected>Age Number Color</option>
+                        <input name = "age" type="number" class="field" placeholder="Add Age" min="0">
+                        <select name="decoration color" class="field" required>
+                            <option disabled selected>Age Number Color - Default white</option>
                             <option>Red</option>
                             <option>Green</option>
                             <option>Blue</option>
@@ -33,9 +33,9 @@
                             <option>Pink</option>
                             <option>Purple</option>
                         </select><br>
-                        <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
-                        <select name="deuration color" class="field" required>
-                            <option disabled selected>Greeting Color - Defualt white</option>
+                        <input name = "greet" type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="decoration color greet" class="field" required>
+                            <option disabled selected>Greeting Color - Default white</option>
                             <option>Red</option>
                             <option>Green</option>
                             <option>Blue</option>
@@ -45,14 +45,14 @@
                             <option>Purple</option>
                         </select><br>
                         <div>
-                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element" value="100"
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element1" value="100"
                                                                                              class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element" value="70"
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element2" value="70"
                                                                                             class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                            <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
+                            <label for="Sugar Free" class="checkboxLabel">Sugar Free<input name="Element3" value="50"
                                                                                            class="checkbox" type="checkbox" onclick="totalIt()" /></label>
                         </div>
-                        <textarea style="resize:none" class="field"
+                        <textarea style="resize:none" class="field" name="requests"
                                   placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
                         <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
                                                              name="total" /></h4>

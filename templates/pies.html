@@ -5,32 +5,41 @@
     <div class="top">
         <h1>Pies</h1>
     </div>
-    <div class="photosCategory" id="photosCategory">
-        <div class="pic Pies1">
-            <a><img id="Pies1" src="../Static/pies/blueberry pie.jfif"
-                    onclick="openPopUp(this.src, 'Blueberry Pie')"></a>
-        </div>
-        <div class="pic Pies2">
-            <a><img src="../Static/pies/chocolate pie.jfif" onclick="openPopUp(this.src, 'Chocolate Pie')"></a>
-        </div>
-        <div class="pic Pies3">
-            <a><img src="../Static/pies/lemonPie.jpeg" onclick="openPopUp(this.src, 'Lemon Pie')"></a>
-        </div>
-        <div class="pic Pies4">
-            <a><img src="../Static/pies/nutella pie cake.jpeg" onclick="openPopUp(this.src, 'Nutella Pie')"></a>
-        </div>
-        <div class="pic Pies5">
-            <a><img src="../Static/pies/pecan pie.jfif" onclick="openPopUp(this. src, 'Pecan Pie')"></a>
-        </div>
-        <div class="pic Pies6">
-            <a><img src="../Static/pies/pistachio pie.jpeg" onclick="openPopUp(this.src, 'Pistachio Pie')"></a>
-        </div>
-        <div class="pic Pies7">
-            <a><img src="../Static/pies/pretzelPie.jpeg" onclick="openPopUp(this.src, 'Pretzel Pie')"></a>
-        </div>
-        <div class="pic Pies8">
-            <a><img src="../Static/pies/pumpkin pie.jfif" onclick="openPopUp(this.src, 'Pumpkin Pie')"></a>
-        </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic Pies1">#}
+{#            <a><img id="Pies1" src="../Static/pies/blueberry pie.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Blueberry Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies2">#}
+{#            <a><img src="../Static/pies/chocolate pie.jfif" onclick="openPopUp(this.src, 'Chocolate Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies3">#}
+{#            <a><img src="../Static/pies/lemonPie.jpeg" onclick="openPopUp(this.src, 'Lemon Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies4">#}
+{#            <a><img src="../Static/pies/nutella pie cake.jpeg" onclick="openPopUp(this.src, 'Nutella Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies5">#}
+{#            <a><img src="../Static/pies/pecan pie.jfif" onclick="openPopUp(this. src, 'Pecan Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies6">#}
+{#            <a><img src="../Static/pies/pistachio pie.jpeg" onclick="openPopUp(this.src, 'Pistachio Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies7">#}
+{#            <a><img src="../Static/pies/pretzelPie.jpeg" onclick="openPopUp(this.src, 'Pretzel Pie')"></a>#}
+{#        </div>#}
+{#        <div class="pic Pies8">#}
+{#            <a><img src="../Static/pies/pumpkin pie.jfif" onclick="openPopUp(this.src, 'Pumpkin Pie')"></a>#}
+{#        </div>#}
+{#    </div>#}
+
+       <div class="photosCategory" id="photosCategory">
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
     </div>
 
     <div class="container" id="container">
@@ -45,13 +54,13 @@
                     <form class="form" action="paymentPage.html">
 
                             <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
-                                <option disabled selected>Pie Size - Defualt 24cm </option>
+                                <option disabled selected>Pie Size - Default 24cm </option>
                                 <option data-price="200" value="200">22 cm</option>
                                 <option  data-price="270" value="270">24 cm</option>
                                 <option  data-price="300" value="300">26 cm</option>
                         </select><br>
                         <input type="number" class="field" placeholder="Add Age" min="0">
-                        <select name="deuration color" class="field" required>
+                        <select name="decoration color" class="field" required>
                             <option disabled selected>Age Number Color</option>
                             <option>Red</option>
                             <option>Green</option>
@@ -61,9 +70,9 @@
                             <option>Pink</option>
                             <option>Purple</option>
                         </select><br>
-                        <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
-                        <select name="deuration color" class="field" required>
-                            <option disabled selected>Greeting Color - Defualt white</option>
+                        <input name = "greeting" type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="decoration color greet" class="field" required>
+                            <option disabled selected>Greeting Color - Default white</option>
                             <option>Red</option>
                             <option>Green</option>
                             <option>Blue</option>
@@ -80,11 +89,11 @@
                             <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
                                     class="checkbox" type="checkbox" onclick="totalIt()" /></label>
                         </div>
-                        <textarea style="resize:none" class="field"
+                        <textarea style="resize:none" class="field" name="requests"
                             placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
                         <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
                                 name="total" /></h4>
-                        <button name="total" class="btn" value="0">Payment</a></button>
+                        <button name="total" class="btn" value="0">Payment</button>
                     </form>
                 </div>
             </div>

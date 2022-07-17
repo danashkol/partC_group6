@@ -5,31 +5,39 @@
     <div class="top">
         <h1>Yeast Cakes</h1>
     </div>
-    <div class="photosCategory" id="photosCategory">
-        <div class="pic Yeast1">
-            <a><img id="Yeast1" src="../Static/yeast cakes/cheese _ chocolate yeast cake.jfif"
-                    onclick="openPopUp(this.src, 'Cheese & Chocolate Yeast Cake')"></a>
-        </div>
-        <div class="pic Boys2">
-            <a><img src="../Static/yeast cakes/cheese _ rasberry teast cake.jfif"
-                    onclick="openPopUp(this.src, 'Cheese & Rasberry Yeast Cake')"></a>
-        </div>
-        <div class="pic Yeast3">
-            <a><img src="../Static/yeast cakes/chocolate yeast cale.jpeg"
-                    onclick="openPopUp(this.src, 'Chocolate Yeast Cake')"></a>
-        </div>
-        <div class="pic Yeast4">
-            <a><img src="../Static/yeast cakes/cinammon yeat cake.jfif"
-                    onclick="openPopUp(this.src, 'Cinnamon Yeast Cake')"></a>
-        </div>
-        <div class="pic Yeast5">
-            <a><img src="../Static/yeast cakes/poopy seed yeast cake.jfif"
-                    onclick="openPopUp(this.src, 'Poppy Seed Yeast Cake')"></a>
-        </div>
-        <div class="pic Yeast6">
-            <a><img src="../Static/yeast cakes/rose shaped yeast cake.jfif"
-                    onclick="openPopUp(this.src, 'Rose Shaped Yeast Cake')"></a>
-        </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic Yeast1">#}
+{#            <a><img id="Yeast1" src="../Static/yeast cakes/cheese _ chocolate yeast cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Cheese & Chocolate Yeast Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Boys2">#}
+{#            <a><img src="../Static/yeast cakes/cheese _ rasberry teast cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Cheese & Rasberry Yeast Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Yeast3">#}
+{#            <a><img src="../Static/yeast cakes/chocolate yeast cale.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Chocolate Yeast Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Yeast4">#}
+{#            <a><img src="../Static/yeast cakes/cinammon yeat cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Cinnamon Yeast Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Yeast5">#}
+{#            <a><img src="../Static/yeast cakes/poopy seed yeast cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Poppy Seed Yeast Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Yeast6">#}
+{#            <a><img src="../Static/yeast cakes/rose shaped yeast cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Rose Shaped Yeast Cake')"></a>#}
+{#        </div>#}
+{#    </div>#}
+   <div class="photosCategory" id="photosCategory">
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
     </div>
 
     <div class="container" id="container">
@@ -42,13 +50,13 @@
                 <div class="right1">
                     <h2 id="name"></h2>
                     <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
-                        <option disabled selected>Cake Size - Defualt 24cm </option>
+                        <option disabled selected>Cake Size - Defualt 20cm </option>
                         <option value="200">20 cm</option>
                         <option value="250">25 cm</option>
                         <option value="300">30 cm</option>
                     </select><br>
-                    <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
-                    <select name="deuration color" class="field" required>
+                    <input name = "greeting" type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                    <select name="decoration color greet" class="field" required>
                         <option disabled selected>Greeting Color</option>
                         <option>Red</option>
                         <option>Green</option>

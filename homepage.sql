@@ -8,5 +8,5 @@ create table homepage
     name     varchar(200) null
 );
 
-INSERT INTO project_db.homepage (id, category, link, pic, name) VALUES (1, ''girlCakes'', ''/girlCakes'', ''../static/girlcakes/girl ice cream cake.jpg'', ''Girl Cake'');
-INSERT INTO project_db.homepage (id, category, link, pic, name) VALUES (2, ''BoysCakes'', ''/boycakes'', ''../static/boy cakes/boys teddy bear.jpg'', ''Boy Cakes'');
+INSERT INTO project_db.homepage (id, category, link, pic, name) VALUES (1, 'girlCakes', '/girlCakes', '../static/girlcakes/girl ice cream cake.jpg', 'Girl Cake');
+INSERT INTO project_db.homepage (id, category, link, pic, name) VALUES (2, 'BoysCakes', '/boycakes', '../static/boy cakes/boys teddy bear.jpg', 'Boy Cakes');

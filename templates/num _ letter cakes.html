@@ -5,52 +5,52 @@
     <div class="top">
         <h1>Number & Letter Cakes</h1>
     </div>
-    <div class="photosCategory" id="photosCategory">
-        <div class="pic Num_Letter1">
-            <a><img id="Num_Letter1" src="../Static/Num&Letter cakes/2021Dana.jpeg"
-                    onclick="openPopUp(this.src, 'New Year Cake')"></a>
-        </div>
-        <div class="pic Num_Letter2">
-            <a><img src="../Static/Num&Letter cakes/berry number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Berry Number Cake')"></a>
-        </div>
-        <div class="pic Num_Letter3">
-            <a><img src="../Static/Num&Letter cakes/black _ white number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Black & White Number Cake')"></a>
-        </div>
-        <div class="pic Num_Letter4">
-            <a><img src="../Static/Num&Letter cakes/chocolate letter cake.jpeg"
-                    onclick="openPopUp(this.src, 'Golden Macaroon Cake')"></a>
-        </div>
-        <div class="pic Num_Letter5">
-            <a><img src="../Static/Num&Letter cakes/chocolate number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Chocolate Number Cake')"></a>
-        </div>
-        <div class="pic Num_Letter6">
-            <a><img src="../Static/Num&Letter cakes/colorfull number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Colorfull Number Cake')"></a>
-        </div>
-        <div class="pic Num_Letter7">
-            <a><img src="../Static/Num&Letter cakes/fruit letter cake.jpeg"
-                    onclick="openPopUp(this.src, 'Fruit Letter Page')"></a>
-        </div>
-        <div class="pic Num_Letter8">
-            <a><img src="../Static/Num&Letter cakes/pink flower number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Pink Flower Number Cake')"></a>
-        </div>
-        <div class="pic Num_Letter9">
-            <a><img src="../Static/Num&Letter cakes/purple letter cake.jpeg"
-                    onclick="openPopUp(this.src, 'Purple Letter Cake')"></a>
-        </div>
-        <div class="pic Num_Letter10">
-            <a><img src="../Static/Num&Letter cakes/strawberry macaroon number cake.jpeg"
-                    onclick="openPopUp(this.src, 'Strawberry Macaroon Cake')"></a>
-        </div>
-        <div class="pic Num_Letter11">
-            <a><img src="../Static/Num&Letter cakes/white number cake.jpeg"
-                    onclick="openPopUp(this.src, 'White Number Cake')"></a>
-        </div>
-    </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic Num_Letter1">#}
+{#            <a><img id="Num_Letter1" src="../Static/Num&Letter cakes/2021Dana.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'New Year Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter2">#}
+{#            <a><img src="../Static/Num&Letter cakes/berry number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Berry Number Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter3">#}
+{#            <a><img src="../Static/Num&Letter cakes/black _ white number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Black & White Number Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter4">#}
+{#            <a><img src="../Static/Num&Letter cakes/chocolate letter cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Golden Macaroon Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter5">#}
+{#            <a><img src="../Static/Num&Letter cakes/chocolate number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Chocolate Number Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter6">#}
+{#            <a><img src="../Static/Num&Letter cakes/colorfull number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Colorfull Number Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter7">#}
+{#            <a><img src="../Static/Num&Letter cakes/fruit letter cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Fruit Letter Page')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter8">#}
+{#            <a><img src="../Static/Num&Letter cakes/pink flower number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Pink Flower Number Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter9">#}
+{#            <a><img src="../Static/Num&Letter cakes/purple letter cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Purple Letter Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter10">#}
+{#            <a><img src="../Static/Num&Letter cakes/strawberry macaroon number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Strawberry Macaroon Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Num_Letter11">#}
+{#            <a><img src="../Static/Num&Letter cakes/white number cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'White Number Cake')"></a>#}
+{#        </div>#}
+{#    </div>#}
 
     <div class="container" id="container">
         <div class="contact-box">
@@ -61,7 +61,7 @@
                 <button id="close" onclick="closePopUp()">X</button>
                 <div class="right1">
                     <h2 id="name"></h2>
-                    <form class="form" action="paymentPage.html">
+                    <form class="form" action="/insertOrder">
                         <select name="cake size" id="Size" class="field" onchange="totalIt2()" required>
                             <option disabled selected>Cake Size - Default 24cm</option>
                             <option data-price="200" value="200">30 cm</option>
@@ -80,10 +80,10 @@
 
                         </select><br>
 
-                        <input type="number" class="field" id="numOfCakes" placeholder="Amount of Numbers/Letters" onclick="totalIt2()" min="1">
-                        <input type="text" class="field" placeholder="Add Numbers/Letters" maxlength="30">
-                        <input type="text" class="field" placeholder="Add Greeting" maxlength="30">
-                        <select name="deuration color" class="field" required>
+                        <input type="number" name="numberOfCakes" class="field" id="numOfCakes" placeholder="Amount of Numbers/Letters" onclick="totalIt2()" min="1">
+                        <input type="text" name="numLetters" class="field" placeholder="Add Numbers/Letters" maxlength="30">
+                        <input name = "greeting" type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="decoration color greet" class="field" required>
                             <option disabled selected>Greeting Color</option>
                             <option>Red</option>
                             <option>Green</option>
@@ -94,21 +94,29 @@
                             <option>Purple</option>
                         </select><br>
                         <div>
-                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element" value="100"
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element1" value="100"
                                     class="checkbox" type="checkbox" onclick="totalIt2()" /></label>
-                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element" value="70"
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element2" value="70"
                                     class="checkbox" type="checkbox" onclick="totalIt2()" /></label>
-                            <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
+                            <label for="Sugar Free" class="checkboxLabel">Sugar Free<input name="Element3" value="50"
                                     class="checkbox" type="checkbox" onclick="totalIt2()" /></label>
                         </div>
-                        <textarea style="resize:none" class="field"
+                        <textarea style="resize:none" class="field" name="requests"
                             placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
                         <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
                                 name="total" /></h4>
-                        <button name="total" class="btn" value="0">Payment</a></button>
+                        <button name="total" class="btn" value="0">Payment</button>
                     </form>
                 </div>
             </div>
         </div>
+    </div>
+       <div class="photosCategory" id="photosCategory">
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
     </div>
 {% endblock %}

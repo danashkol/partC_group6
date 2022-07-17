@@ -5,30 +5,38 @@
     <div class="top">
         <h1>Our Specials</h1>
     </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic special1">#}
+{#            <a><img id="Pies1" src="../Static/ourSpecials/Half Birthday Cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Half Birthday Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic special2">#}
+{#            <a><img src="../Static/ourSpecials/Halva Chocolate Mousse.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Halva Chocolate Mousse Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic special3">#}
+{#            <a><img src="../Static/ourSpecials/Knafe Cake.jpeg" onclick="openPopUp(this.src, 'Knafe Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic special4">#}
+{#            <a><img src="../Static/ourSpecials/Pistachio Chocolate Mousse Cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Pistachio Chocolate Mousse Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic special5">#}
+{#            <a><img src="../Static/ourSpecials/Popcorn Mousse Cake.jpeg"#}
+{#                    onclick="openPopUp(this. src, 'Popcorn Mousse Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic special6">#}
+{#            <a><img src="../Static/pies/pistachio pie.jpeg" onclick="openPopUp(this.src, 'Pistachio Pie')"></a>#}
+{#        </div>#}
+{##}
+{#    </div>#}
     <div class="photosCategory" id="photosCategory">
-        <div class="pic special1">
-            <a><img id="Pies1" src="../Static/ourSpecials/Half Birthday Cake.jpeg"
-                    onclick="openPopUp(this.src, 'Half Birthday Cake')"></a>
-        </div>
-        <div class="pic special2">
-            <a><img src="../Static/ourSpecials/Halva Chocolate Mousse.jpeg"
-                    onclick="openPopUp(this.src, 'Halva Chocolate Mousse Cake')"></a>
-        </div>
-        <div class="pic special3">
-            <a><img src="../Static/ourSpecials/Knafe Cake.jpeg" onclick="openPopUp(this.src, 'Knafe Cake')"></a>
-        </div>
-        <div class="pic special4">
-            <a><img src="../Static/ourSpecials/Pistachio Chocolate Mousse Cake.jpeg"
-                    onclick="openPopUp(this.src, 'Pistachio Chocolate Mousse Cake')"></a>
-        </div>
-        <div class="pic special5">
-            <a><img src="../Static/ourSpecials/Popcorn Mousse Cake.jpeg"
-                    onclick="openPopUp(this. src, 'Popcorn Mousse Cake')"></a>
-        </div>
-        <div class="pic special6">
-            <a><img src="../Static/pies/pistachio pie.jpeg" onclick="openPopUp(this.src, 'Pistachio Pie')"></a>
-        </div>
-
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
     </div>
 
 {% include 'cakePage.html' %}

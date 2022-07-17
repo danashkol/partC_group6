@@ -5,39 +5,47 @@
     <div class="top">
         <h1>Bachlorette Party Cakes</h1>
     </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic Adult1">#}
+{#            <a><img id="Bachlorette1" src="../static/bachlorette cakes/barbie bachlorette cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Barbie Bachlorette Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette2">#}
+{#            <a><img src="../static/bachlorette cakes/barbie marshmellow cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Barbie Marshmellow Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette3">#}
+{#            <a><img src="../static/bachlorette cakes/bride to be cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Bride To Be Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette4">#}
+{#            <a><img src="../static/bachlorette cakes/last night out cake.jfif"#}
+{#                    onclick="openPopUp(this.src, 'Last Night Out Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette5">#}
+{#            <a><img src="../static/bachlorette cakes/ring box cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Ring Box Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette6">#}
+{#            <a><img src="../static/bachlorette cakes/ring decoration cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Ring Decoration Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette7">#}
+{#            <a><img src="../static/bachlorette cakes/ring flower cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Ring Flower Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Bachlorette8">#}
+{#            <a><img src="../static/bachlorette cakes/the hunts over bachlorette cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'The Hunt is Over')"></a>#}
+{#        </div>#}
+{#    </div>#}
     <div class="photosCategory" id="photosCategory">
-        <div class="pic Adult1">
-            <a><img id="Bachlorette1" src="../static/bachlorette cakes/barbie bachlorette cake.jpg"
-                    onclick="openPopUp(this.src, 'Barbie Bachlorette Cake')"></a>
-        </div>
-        <div class="pic Bachlorette2">
-            <a><img src="../static/bachlorette cakes/barbie marshmellow cake.jpg"
-                    onclick="openPopUp(this.src, 'Barbie Marshmellow Cake')"></a>
-        </div>
-        <div class="pic Bachlorette3">
-            <a><img src="../static/bachlorette cakes/bride to be cake.jfif"
-                    onclick="openPopUp(this.src, 'Bride To Be Cake')"></a>
-        </div>
-        <div class="pic Bachlorette4">
-            <a><img src="../static/bachlorette cakes/last night out cake.jfif"
-                    onclick="openPopUp(this.src, 'Last Night Out Cake')"></a>
-        </div>
-        <div class="pic Bachlorette5">
-            <a><img src="../static/bachlorette cakes/ring box cake.jpg"
-                    onclick="openPopUp(this.src, 'Ring Box Cake')"></a>
-        </div>
-        <div class="pic Bachlorette6">
-            <a><img src="../static/bachlorette cakes/ring decoration cake.jpg"
-                    onclick="openPopUp(this.src, 'Ring Decoration Cake')"></a>
-        </div>
-        <div class="pic Bachlorette7">
-            <a><img src="../static/bachlorette cakes/ring flower cake.jpeg"
-                    onclick="openPopUp(this.src, 'Ring Flower Cake')"></a>
-        </div>
-        <div class="pic Bachlorette8">
-            <a><img src="../static/bachlorette cakes/the hunts over bachlorette cake.jpg"
-                    onclick="openPopUp(this.src, 'The Hunt is Over')"></a>
-        </div>
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
     </div>
 {% include 'weddingCakePage.html' %}
 {% endblock %}

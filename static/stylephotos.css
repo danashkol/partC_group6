@@ -8,6 +8,48 @@
     filter: blur(0px);
 }
 
+.pic{
+    position: relative;
+    height: 210px;
+    border-radius: 7px;
+    box-shadow: 2px 2px 4px lightgray;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+    opacity: 1;
+    transition: .5s ease;
+    backface-visibility: hidden;
+}
+
+.pic img{
+    width: 100%;
+    height: 100%;
+    border-radius: 7px;
+    transition: .5s ease;
+}
+
+.pic img:hover{
+    opacity: 0.5;
+}
+.pic:hover{
+    transform: scale(1.08);
+
+}
+.pic:hover .cakeName{
+    opacity: 1;
+
+}
+.cakeName{
+    transition: .5s ease;
+    opacity: 0;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+  }
+
 .top {
     width: 100%;
     text-align: center;

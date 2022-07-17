@@ -98,7 +98,7 @@ function myFunction() {
     CardNumber.value = ""
 }
 
-function totalIt() {    
+function totalIt() {
     var input = document.getElementsByName("Element");
     var size = document.getElementById("Size").value;
     var count = 0;
@@ -125,6 +125,11 @@ function totalIt() {
     document.querySelector('input[name="total"]').value = total;
   }
 
+  function checkIfLoged(){
+    if (sessionStorage['logedin'] == false){
+        alert("you must log in")
+    }
+  }
 // function move(){
 // var cake_Price = document.getElementById("cakeTprice");
 // var cake_Name = document.getElementById("name");

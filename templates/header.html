@@ -43,6 +43,6 @@
         <li><a href="/contact_us">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
     </ul>
 {% if session.logedin %}
-    <h4 class="loginName">Hey {{session.username | upper() }}</h4>
+    <div class="showUsername"><h4 class="loginName">Hey {{ session.username}}</h4></div>
 {% endif %}
 </nav>

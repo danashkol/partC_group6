@@ -1,4 +1,4 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 
 import mysql.connector
 import requests
@@ -49,63 +49,78 @@ app.secret_key = '123'
 app.config['SESSION_PERMANENT'] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1000)
 
-
 @app.route('/')
 def homePage():
-    print(session['username'])
     query = "select * from homepage"
     costumers_list = interact_db(query, query_type='fetch')
     return render_template('home page.html', CList=costumers_list)
 
 
+@app.route('/bachPartyCakes')
+def bachPartyCakes():
+    query = "select * from cakes where category='Bachellorete Party Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('bachlorette party cakes.html', CList=cakes_list)
+
 @app.route('/girlCakes')
 def girlCakes():
-    return render_template('girl cakes.html')
-
+    query = "select * from cakes where category='Girl Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('girl cakes.html', CList=cakes_list)
 
 @app.route('/boyCakes')
 def boyCakes():
-    return render_template('boy cakes.html')
+    query = "select * from cakes where category='Boy Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('boy cakes.html', CList=cakes_list)
 
 
 @app.route('/adultCakes')
 def adultCakes():
-    return render_template('adult cakes.html')
+    query = "select * from cakes where category='Adult Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('adult cakes.html', CList=cakes_list)
 
 
 @app.route('/numLetterCakes')
 def numLetCakes():
-    return render_template('num _ letter cakes.html')
+    query = "select * from cakes where category='Num&Letter cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('num _ letter cakes.html', CList=cakes_list)
 
 
 @app.route('/weddingCakes')
 def weddingCakes():
-    return render_template('wedding cakes.HTML')
+    query = "select * from cakes where category='Wedding Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('wedding cakes.HTML' , CList=cakes_list)
 
 
 @app.route('/ringCakes')
 def ringCakes():
-    return render_template('ring cakes.html')
-
-
-@app.route('/bachPartyCakes')
-def bachPartyCakes():
-    return render_template('bachlorette party cakes.html')
-
+    query = "select * from cakes where category='Ring Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('ring cakes.html', CList=cakes_list)
 
 @app.route('/pies')
 def pies():
-    return render_template('pies.html')
+    query = "select * from cakes where category='Pies'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('pies.html', CList=cakes_list)
 
 
 @app.route('/yeastCakes')
 def yeastCakes():
-    return render_template('yeast cakes.html')
+    query = "select * from cakes where category='Yeast Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('yeast cakes.html', CList=cakes_list)
 
 
 @app.route('/specialCakes')
 def specialCakes():
-    return render_template('special cakes.html')
+    query = "select * from cakes where category='Special Cakes'"
+    cakes_list = interact_db(query, query_type='fetch')
+    return render_template('special cakes.html', CList=cakes_list)
 
 
 @app.route('/accessibility')
@@ -126,6 +141,70 @@ def privacyPolicy():
 @app.route('/ourTeam')
 def ourTeam():
     return render_template('Our Team.html')
+
+
+@app.route('/insertOrder', methods=['GET', 'POST'])
+def insertOrder():
+    if session.logedin:
+        print(session['username'])
+        username = session['username']
+    else:
+        return render_template('../pages/signIn_UP/templates', message="You must Log-In to make an order")
+
+    date = datetime.now()
+    print("hi")
+    if request.method == 'POST':
+        price = 200
+        print(price)
+        cake = 'barbie bachlorette cake'
+        print(cake)
+        username = 'dana'
+        print(request.form.get('cake size'))
+        if request.form.get('cake size') is None:
+            size = 24
+        else:
+            size = request.form.get('cake size')
+        if request.form.get('cake flavor') is None:
+            flavor = 'vanilla'
+        else:
+            flavor = request.form.get('cake flavor')
+        age = request.form['age']
+        if request.form.get('decoration color') is None:
+            ageColor = 'white'
+        else:
+            ageColor = request.form.get('decoration color')
+        greeting = request.form['greet']
+        if request.form.get('decoration color greet') is None:
+            greetingColor = 'white'
+        else:
+            greetingColor = request.form.get('decoration color greet')
+        if request.form.get('Element 1') is None:
+            glutenFree = 0
+        else:
+            glutenFree = 1
+        if request.form.get('Element 2') is None:
+            dairyFree = 0
+        else:
+            dairyFree = 1
+        if request.form.get('Element 3') is None:
+            sugarFree = 0
+        else:
+            sugarFree = 1
+        requests = request.form['requests']
+        # print(requests)
+        # amountOfNumLetters = request.form['numberOfCakes']
+        # print(amountOfNumLetters)
+        # numLetters = request.form['numLetter']
+        query = "INSERT INTO orders (username,cake, price, date, size, flavor,age, ageColor, greeting, greetingColor, " \
+                "glutenFree, dairyFree, sugarFree,requests) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
+                "'%s', '%s','%s', '%s', '%s','%s','%s')" % (
+                    username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree,
+                    dairyFree, sugarFree, requests)
+        interact_db(query=query, query_type='commit')
+
+    return render_template('adult cakes.html')
+
+
 
 
 if __name__ == '__main__':

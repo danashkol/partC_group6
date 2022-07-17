@@ -12,7 +12,7 @@
     <div class="photosCategory" id="photosCategory">
         {% for C in CList %}
             <div class="pic">
-                <h3 class="categoryName">>"{{ C.name }}"</h3>
+                <h3 class="categoryName">{{ C.name }}</h3>
                 <a href="{{ C.link }}"><img id="hh" src="{{ C.pic }}" alt="{{ C.name }}"></a>
             </div>
         {% endfor %}

@@ -5,40 +5,49 @@
     <div class="top">
         <h1>Girl Cakes</h1>
     </div>
+{#    <div class="photosCategory" id="photosCategory">#}
+{#        <div class="pic Girls2">#}
+{#            <a><img src="../Static/girlcakes/castle cake.jpg" onclick="openPopUp(this.src, 'Castle Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls3">#}
+{#            <a><img src="../Static/girlcakes/girl cloud cake.jpg" onclick="openPopUp(this.src, 'Girl Cloud Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls4">#}
+{#            <a><img src="../Static/girlcakes/girl ice cream cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Girl Ice Cream Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls5">#}
+{#            <a><img src="../Static/girlcakes/girl pop it cake.jpg" onclick="openPopUp(this.src, 'Pop It Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls6">#}
+{#            <a><img src="../Static/girlcakes/girl teddy bear cake.jpg"#}
+{#                    onclick="openPopUp(this.src, 'Girl Teddy Bear Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls7">#}
+{#            <a><img src="../Static/girlcakes/pink pastel cake.jpeg" onclick="openPopUp(this.src, 'Meringue Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls8">#}
+{#            <a><img src="../Static/girlcakes/princess cake.png" onclick="openPopUp(this.src, 'Animal Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls9">#}
+{#            <a><img src="../Static/girlcakes/rainbow cake.jpg" onclick="openPopUp(this.src, 'Rainbow Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls10">#}
+{#            <a><img src="../Static/girlcakes/unikorn cake.jpg" onclick="openPopUp(this.src, 'Unicorn Cake')"></a>#}
+{#        </div>#}
+{#        <div class="pic Girls1">#}
+{#            <a><img id="Girls1" src="../Static/girlcakes/Animal cake.jpeg"#}
+{#                    onclick="openPopUp(this.src, 'Animal Cake')"></a>#}
+{#        </div>#}
+{#    </div>#}
     <div class="photosCategory" id="photosCategory">
-        <div class="pic Girls2">
-            <a><img src="../Static/girlcakes/castle cake.jpg" onclick="openPopUp(this.src, 'Castle Cake')"></a>
-        </div>
-        <div class="pic Girls3">
-            <a><img src="../Static/girlcakes/girl cloud cake.jpg" onclick="openPopUp(this.src, 'Girl Cloud Cake')"></a>
-        </div>
-        <div class="pic Girls4">
-            <a><img src="../Static/girlcakes/girl ice cream cake.jpg"
-                    onclick="openPopUp(this.src, 'Girl Ice Cream Cake')"></a>
-        </div>
-        <div class="pic Girls5">
-            <a><img src="../Static/girlcakes/girl pop it cake.jpg" onclick="openPopUp(this.src, 'Pop It Cake')"></a>
-        </div>
-        <div class="pic Girls6">
-            <a><img src="../Static/girlcakes/girl teddy bear cake.jpg"
-                    onclick="openPopUp(this.src, 'Girl Teddy Bear Cake')"></a>
-        </div>
-        <div class="pic Girls7">
-            <a><img src="../Static/girlcakes/pink pastel cake.jpeg" onclick="openPopUp(this.src, 'Meringue Cake')"></a>
-        </div>
-        <div class="pic Girls8">
-            <a><img src="../Static/girlcakes/princess cake.png" onclick="openPopUp(this.src, 'Animal Cake')"></a>
-        </div>
-        <div class="pic Girls9">
-            <a><img src="../Static/girlcakes/rainbow cake.jpg" onclick="openPopUp(this.src, 'Rainbow Cake')"></a>
-        </div>
-        <div class="pic Girls10">
-            <a><img src="../Static/girlcakes/unikorn cake.jpg" onclick="openPopUp(this.src, 'Unicorn Cake')"></a>
-        </div>
-        <div class="pic Girls1">
-            <a><img id="Girls1" src="../Static/girlcakes/Animal cake.jpeg"
-                    onclick="openPopUp(this.src, 'Animal Cake')"></a>
-        </div>
+        {% for C in CList %}
+                <div class="pic">
+                   <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                </div>
+        {% endfor %}
+
     </div>
     {% include 'cakePage.html' %}
 
