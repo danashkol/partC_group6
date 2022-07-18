@@ -3,7 +3,7 @@
         <img src="../static/logo without.jpg">
     </div>
     <ul>
-        <li><a href="/">Home Page</a><i class="fa fa-solid fa-house"></i></li>
+        <li><a href="/homePage">Home Page</a><i class="fa fa-solid fa-house"></i></li>
         {% if session['logedin'] %}
             <li><a href="/log_out">Log Out</a><i class="fa fa-solid fa-arrow-right-to-bracket"></i></li>
         {% else %}
@@ -43,6 +43,6 @@
         <li><a href="/contact_us">Contact Us</a><i class="fa fa-solid fa-file-signature"></i>
     </ul>
 {% if session.logedin %}
-    <div class="showUsername"><h4 class="loginName">Hey {{ session.username}}</h4></div>
+    <div class="showUsername"><h4 class="loginName">Hey {{session.username}}</h4></div>
 {% endif %}
 </nav>

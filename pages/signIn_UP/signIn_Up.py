@@ -63,7 +63,7 @@ def logIn_func():
             string = str(session['username'])
             subString = string[14:-2]
             session['username'] = subString
-            return redirect('/')
+            return redirect('/homePage')
         else:
             return render_template('signIn_Up3.html',
                                    logIn_message='No Matching Username, Please Sign In'

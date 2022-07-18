@@ -6,6 +6,7 @@ function openPopUp(image, cakeName) {
     var photosCategory = document.getElementById("photosCategory");
     var name = document.getElementById("name");
     var btn = document.getElementById("close");
+    document.querySelector('input[name="cakeName"]').value = cakeName;
     popUp.style.visibility = "visible";
     btn.style.visibility = "visible";
     photosCategory.style.filter = "blur(10px)";

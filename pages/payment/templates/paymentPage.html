@@ -24,11 +24,13 @@
 
               <div class="item">
                 {% for O in OList %}
-                        <div class="item">
+{#                    {{% if O.name == dana %}}#}
+                    <div class="item">
                             <p class="item-name">
                                 {{ O.cake }}
                             </p>
                         </div>
+{#                    {% endif %}#}
                 {% endfor %}
               </div>
 
