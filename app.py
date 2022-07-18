@@ -140,17 +140,16 @@ def privacyPolicy():
 
 @app.route('/ourTeam')
 def ourTeam():
-    return render_template('Our Team.html')
+    return render_template('our team.html')
 
 
 @app.route('/insertOrder', methods=['GET', 'POST'])
 def insertOrder():
-    if session.logedin:
+    if session['logedin']:
         print(session['username'])
         username = session['username']
     else:
-        return render_template('../pages/signIn_UP/templates', message="You must Log-In to make an order")
-
+        return render_template('signIn_Up3.html', message="You must Log-In to make an order")
     date = datetime.now()
     print("hi")
     if request.method == 'POST':
@@ -158,7 +157,7 @@ def insertOrder():
         print(price)
         cake = 'barbie bachlorette cake'
         print(cake)
-        username = 'dana'
+        username = session['username']
         print(request.form.get('cake size'))
         if request.form.get('cake size') is None:
             size = 24
@@ -178,15 +177,15 @@ def insertOrder():
             greetingColor = 'white'
         else:
             greetingColor = request.form.get('decoration color greet')
-        if request.form.get('Element 1') is None:
+        if request.form.get('Element1') is None:
             glutenFree = 0
         else:
             glutenFree = 1
-        if request.form.get('Element 2') is None:
+        if request.form.get('Element2') is None:
             dairyFree = 0
         else:
             dairyFree = 1
-        if request.form.get('Element 3') is None:
+        if request.form.get('Element3') is None:
             sugarFree = 0
         else:
             sugarFree = 1
@@ -202,7 +201,7 @@ def insertOrder():
                     dairyFree, sugarFree, requests)
         interact_db(query=query, query_type='commit')
 
-    return render_template('adult cakes.html')
+    return redirect('/payment')
 
 
 
