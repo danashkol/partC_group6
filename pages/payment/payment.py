@@ -1,18 +1,28 @@
-from datetime import timedelta
+from datetime import timedelta, datetime
 import mysql.connector
 import requests
-from flask import Blueprint, render_template, request, redirect, session, jsonify
+from flask import Blueprint, render_template, request, redirect, session, jsonify, Flask
 from app import interact_db
-
 
 payment = Blueprint('payment', __name__,
                          static_folder='static',
                          template_folder='templates')
 
 
-@payment.route('/payment')
+@payment.route('/payment', methods=['GET'])
 def payment_main():
-    return render_template('paymentPage.html')
+        # username = request.form['username']
+        # where username = '%s'" %username
+        query = "select * from orders"
+        OrdersList = interact_db(query, query_type='fetch')
+        return render_template('paymentPage.html', OList=OrdersList)
+
+
+# @payment.route('/deleteOrder', methods=['POST'])
+# def delete_Order():
+#     query = "select * from orders"
+#     OrdersList = interact_db(query, query_type='fetch')
+
 
 
 @payment.route('/insert_charge', methods=['POST'])

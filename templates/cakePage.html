@@ -45,17 +45,16 @@
                             <option>Purple</option>
                         </select><br>
                         <div>
-                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element1" value="100"
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input id="Element1" name="Element1" value="100"
                                                                                              class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element2" value="70"
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input id="Element2" name="Element2" value="70"
                                                                                             class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                            <label for="Sugar Free" class="checkboxLabel">Sugar Free<input name="Element3" value="50"
+                            <label for="Sugar Free" class="checkboxLabel">Sugar Free<input id="Element3" name="Element3" value="50"
                                                                                            class="checkbox" type="checkbox" onclick="totalIt()" /></label>
                         </div>
                         <textarea style="resize:none" class="field" name="requests"
                                   placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
-                        <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
-                                                             name="total" /></h4>
+                        <h4 class="price">Total Price:<input value="270" readonly="readonly" type="text" id="cakeTprice" name="total" /></h4>
                         <button name="total" class="btn" value="0">Payment</button>
                     </form>
                 </div>

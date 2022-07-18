@@ -9,7 +9,7 @@ def interact_db(query, query_type: str):
     return_value = False
     connection = mysql.connector.connect(host='localhost',
                                          user='root',
-                                         passwd='Root',
+                                         passwd='Vbgkvht767!',
                                          database='project_db')
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
@@ -84,7 +84,7 @@ def adultCakes():
 
 @app.route('/numLetterCakes')
 def numLetCakes():
-    query = "select * from cakes where category='Num&Letter cakes'"
+    query = "select * from cakes where category='Num _ Letter cakes'"
     cakes_list = interact_db(query, query_type='fetch')
     return render_template('num _ letter cakes.html', CList=cakes_list)
 
@@ -145,63 +145,64 @@ def ourTeam():
 
 @app.route('/insertOrder', methods=['GET', 'POST'])
 def insertOrder():
-    if session['logedin']:
-        print(session['username'])
-        username = session['username']
-    else:
-        return render_template('signIn_Up3.html', message="You must Log-In to make an order")
-    date = datetime.now()
-    print("hi")
     if request.method == 'POST':
-        price = 200
-        print(price)
-        cake = 'barbie bachlorette cake'
-        print(cake)
-        username = session['username']
-        print(request.form.get('cake size'))
-        if request.form.get('cake size') is None:
-            size = 24
-        else:
-            size = request.form.get('cake size')
-        if request.form.get('cake flavor') is None:
-            flavor = 'vanilla'
-        else:
-            flavor = request.form.get('cake flavor')
-        age = request.form['age']
-        if request.form.get('decoration color') is None:
-            ageColor = 'white'
-        else:
-            ageColor = request.form.get('decoration color')
-        greeting = request.form['greet']
-        if request.form.get('decoration color greet') is None:
-            greetingColor = 'white'
-        else:
-            greetingColor = request.form.get('decoration color greet')
-        if request.form.get('Element1') is None:
-            glutenFree = 0
-        else:
-            glutenFree = 1
-        if request.form.get('Element2') is None:
-            dairyFree = 0
-        else:
-            dairyFree = 1
-        if request.form.get('Element3') is None:
-            sugarFree = 0
-        else:
-            sugarFree = 1
-        requests = request.form['requests']
-        # print(requests)
-        # amountOfNumLetters = request.form['numberOfCakes']
-        # print(amountOfNumLetters)
-        # numLetters = request.form['numLetter']
-        query = "INSERT INTO orders (username,cake, price, date, size, flavor,age, ageColor, greeting, greetingColor, " \
-                "glutenFree, dairyFree, sugarFree,requests) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
-                "'%s', '%s','%s', '%s', '%s','%s','%s')" % (
-                    username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree,
-                    dairyFree, sugarFree, requests)
-        interact_db(query=query, query_type='commit')
+        if session['logedin']:
+            print(session['username'])
+            username = session['username']
+            date = datetime.now()
+            print("hi")
+            if request.method == 'POST':
+                price = 200
+                print(price)
+                cake = 'barbie bachlorette cake'
+                print(cake)
+                username = session['username']
+                print(request.form.get('cake size'))
+                if request.form.get('cake size') is None:
+                    size = 24
+                else:
+                    size = request.form.get('cake size')
+                if request.form.get('cake flavor') is None:
+                    flavor = 'vanilla'
+                else:
+                    flavor = request.form.get('cake flavor')
+                age = request.form['age']
+                if request.form.get('decoration color') is None:
+                    ageColor = 'white'
+                else:
+                    ageColor = request.form.get('decoration color')
+                greeting = request.form['greet']
+                if request.form.get('decoration color greet') is None:
+                    greetingColor = 'white'
+                else:
+                    greetingColor = request.form.get('decoration color greet')
+                if request.form.get('Element1') is None:
+                    glutenFree = 0
+                else:
+                    glutenFree = 1
+                if request.form.get('Element2') is None:
+                    dairyFree = 0
+                else:
+                    dairyFree = 1
+                if request.form.get('Element3') is None:
+                    sugarFree = 0
+                else:
+                    sugarFree = 1
+                requests = request.form['requests']
+                # print(requests)
+                # amountOfNumLetters = request.form['numberOfCakes']
+                # print(amountOfNumLetters)
+                # numLetters = request.form['numLetter']
+                query = "INSERT INTO orders (username,cake, price, date, size, flavor,age, ageColor, greeting, greetingColor, " \
+                        "glutenFree, dairyFree, sugarFree,requests) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
+                        "'%s', '%s','%s', '%s', '%s','%s','%s')" % (
+                            username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree,
+                            dairyFree, sugarFree, requests)
+                interact_db(query=query, query_type='commit')
+                return redirect('/payment')
+        return redirect('/payment')
+        # return render_template('signIn_Up3.html', message="You must Log-In to make an order")
 
-    return redirect('/payment')
 
 
 

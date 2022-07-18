@@ -99,14 +99,19 @@ function myFunction() {
 }
 
 function totalIt() {
-    var input = document.getElementsByName("Element");
+    var input1 = document.getElementById("Element1");
+    var input2 = document.getElementById("Element2");
+    var input3 = document.getElementById("Element3");
     var size = document.getElementById("Size").value;
-    var count = 0;
     var total = parseFloat(size);
-    for (var i = 0; i < input.length; i++) {
-      if (input[i].checked) {
-        total += parseFloat(input[i].value);
-      }
+    if(input1.checked){
+        total += parseFloat(input1.value);
+    }
+    if(input2.checked){
+        total += parseFloat(input2.value);
+    }
+    if(input3.checked){
+        total += parseFloat(input3.value);
     }
     document.querySelector('input[name="total"]').value = total.toFixed(2);
   }

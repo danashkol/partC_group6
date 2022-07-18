@@ -21,11 +21,28 @@
         <form action="/insert_charge" method="post">
           <div class="products">
             <h3 class="title">Checkout</h3>
-            <div class="item">
-              <span class="price">120ILS</span>
-              <p class="item-name">Cake</p>
-              <p class="item-description">You Chose The Best Cake!</p>
-            </div>
+
+              <div class="item">
+                {% for O in OList %}
+                        <div class="item">
+                            <p class="item-name">
+                                {{ O.cake }}
+                            </p>
+                        </div>
+                {% endfor %}
+              </div>
+
+{#            <div class="item">#}
+{#              <span class="price"><input value="" readonly="readonly" type="text" id="OrderTotalPrice" name="OrderTotalPrice" /></span>#}
+{#              <p class="item-name">#}
+{#                  Cake#}
+{#              </p>#}
+{#              <p class="item-description">#}
+{#                  You Chose The Best Cake!#}
+{#              </p>#}
+{#            </div>#}
+
+
             <div class="total">Total<span class="price">120ILS</span></div>
           </div>
           <div class="card-details">

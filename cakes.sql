@@ -1,4 +1,4 @@
-create table project_db.cakes
+create table cakes
 (
     name      varchar(200) not null,
     category  varchar(200) not null,
@@ -7,8 +7,9 @@ create table project_db.cakes
     ordersNum int          null,
     primary key (name, category),
     constraint fk_category
-        foreign key (category) references project_db.category (category)
-);
+        foreign key (category) references category (category)
+)
+    engine = InnoDB;
 
 INSERT INTO project_db.cakes (name, category, pic, price, ordersNum) VALUES ('2 Layer Lotus Cake', 'Adult Cakes', '../static/adult cakes/2 layer lotus cake.jpeg', 0, 0);
 INSERT INTO project_db.cakes (name, category, pic, price, ordersNum) VALUES ('2 level ring cake', 'Ring cakes', '../static/ring cakes/2 level ring cake.jpeg', 0, 0);
