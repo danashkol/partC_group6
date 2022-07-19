@@ -1,18 +1,22 @@
 
 
-function openPopUp(image, cakeName) {
+function openPopUp(image, cakeName ,price) {
     var popUp = document.getElementById("container");
     var left = document.getElementById("left");
     var photosCategory = document.getElementById("photosCategory");
     var name = document.getElementById("name");
     var btn = document.getElementById("close");
     document.querySelector('input[name="cakeName"]').value = cakeName;
+    document.querySelector('input[name="StartPrice"]').value = price;
+    console.log(document.querySelector('input[name="StartPrice"]').value);
     popUp.style.visibility = "visible";
     btn.style.visibility = "visible";
     photosCategory.style.filter = "blur(10px)";
     left.classList.add("open-left");
+    TotalPrice.innerHTML = price;
     name.innerHTML = cakeName;
     document.getElementById("oleft").src = image;
+    totalIt()
 }
 
 function closePopUp() {
@@ -100,36 +104,45 @@ function myFunction() {
 }
 
 function totalIt() {
+    let TotalP = parseInt(document.querySelector('input[name="StartPrice"]').value);
     var input1 = document.getElementById("Element1");
     var input2 = document.getElementById("Element2");
     var input3 = document.getElementById("Element3");
     var size = document.getElementById("Size").value;
-    var total = parseFloat(size);
+
     if(input1.checked){
-        total += parseFloat(input1.value);
+        TotalP += parseFloat(input1.value);
+
     }
     if(input2.checked){
-        total += parseFloat(input2.value);
+        TotalP += parseFloat(input2.value);
+
     }
     if(input3.checked){
-        total += parseFloat(input3.value);
+        TotalP += parseFloat(input3.value);
+
     }
-    document.querySelector('input[name="total"]').value = total.toFixed(2);
+    TotalP += parseFloat(size);
+
+      TotalPrice.innerHTML = TotalP;
+      console.log(TotalPrice.innerHTML)
+
+
   }
 
-  function totalIt2() {    
-    var input = document.getElementsByName("Element");
-    var size = document.getElementById("Size").value;
-    var numOfCakes = document.getElementById("numOfCakes").value;
-    if(numOfCakes == 0){numOfCakes = 1;}
-    var total = parseFloat(size)*numOfCakes;
-    for (var i = 0; i < input.length; i++) {
-      if (input[i].checked) {
-        total += parseFloat(input[i].value);
-      }
-    }
-    document.querySelector('input[name="total"]').value = total;
-  }
+  // function totalIt2() {
+  //   var input = document.getElementsByName("Element");
+  //   var size = document.getElementById("Size").value;
+  //   var numOfCakes = document.getElementById("numOfCakes").value;
+  //   if(numOfCakes == 0){numOfCakes = 1;}
+  //   var total = parseFloat(size)*numOfCakes;
+  //   for (var i = 0; i < input.length; i++) {
+  //     if (input[i].checked) {
+  //       total += parseFloat(input[i].value);
+  //     }
+  //   }
+  //   document.querySelector('input[name="total"]').value = total;
+  // }
 
   function checkIfLoged(){
     if (sessionStorage['logedin'] == false){

@@ -44,7 +44,7 @@
         {% for C in CList %}
                 <div class="pic">
                    <h3 class="cakeName">{{ C.name }}</h3>
-                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}', '{{ C.price }}')"></a>
                 </div>
         {% endfor %}
     </div>
