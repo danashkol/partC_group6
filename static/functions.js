@@ -1,4 +1,13 @@
-
+function paymentAlert(message) {
+    if (message == "True") {
+        alert("Congrats! Payment completed Successfully!", "You can collect your order from the store in 48 hours!");
+    }
+    if (message == "None") {
+        console.log("hi");
+    } else {
+        alert('Some details are missing. Please fill all the fields');
+    }
+}
 
 function openPopUp(image, cakeName ,price) {
     var popUp = document.getElementById("container");
