@@ -8,6 +8,8 @@ function openPopUp(image, cakeName ,price) {
     var btn = document.getElementById("close");
     document.querySelector('input[name="cakeName"]').value = cakeName;
     document.querySelector('input[name="StartPrice"]').value = price;
+    document.querySelector('input[name="Oname"]').value = cakeName;
+    console.log(document.querySelector('input[name="Oname"]').value);
     console.log(document.querySelector('input[name="StartPrice"]').value);
     popUp.style.visibility = "visible";
     btn.style.visibility = "visible";
@@ -125,7 +127,12 @@ function totalIt() {
     TotalP += parseFloat(size);
 
       TotalPrice.innerHTML = TotalP;
-      console.log(TotalPrice.innerHTML)
+      // TPrice.innerHTML = TotalP;
+      document.querySelector('input[name="OPrice"]').value = TotalP
+
+      console.log(document.querySelector('input[name="OPrice"]').value)
+      console.log(document.querySelector('input[name="StartPrice"]').value)
+      // console.log(TotalPrice.innerHTML)
 
 
   }

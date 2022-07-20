@@ -1,4 +1,6 @@
 from datetime import timedelta, datetime
+
+import flask
 import mysql.connector
 import requests
 from flask import Blueprint, render_template, request, redirect, session, jsonify, Flask
@@ -11,11 +13,16 @@ payment = Blueprint('payment', __name__,
 
 @payment.route('/payment', methods=['GET'])
 def payment_main():
-        # username = request.form['username']
-        # where username = '%s'" %username
-        query = "select * from orders"
+        query = "select * from orders where username = '%s' and status = 'in process'"%(session['username'])
+        # TotalPrice = "select sum(price) from orders where username = '%s' and status = 'in process'"%(session['username'])
+        # TP = interact_db(TotalPrice, query_type='fetch')
+        # print(TP)
         OrdersList = interact_db(query, query_type='fetch')
-        return render_template('paymentPage.html', OList=OrdersList)
+        TP=0;
+        for order in OrdersList:
+            TP +=order.price
+        print(TP)
+        return render_template('paymentPage.html', OList=OrdersList, TPrice=TP)
 
 
 # @payment.route('/deleteOrder', methods=['POST'])
@@ -36,5 +43,9 @@ def insert_charge_func():
         return render_template('paymentPage.html', message_p='Some details are missing. Please fill all the fields')
     query = "INSERT INTO payments(cardHolder, expiredM, expiredY, cardNumber, cvc ) VALUES ('%s', '%s','%s', '%s', '%s')" % (
              cardHolder, expiredM, expiredY, cardNumber, cvc)
+    UPDATEquery = "update orders  set status ='%s'where username = '%s';" % ('payed', session['username'])
+
+
     interact_db(query=query, query_type='commit')
+    interact_db(query=UPDATEquery, query_type='commit')
     return render_template('paymentPage.html', message_p='Payment completed Successfully')

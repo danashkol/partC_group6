@@ -159,16 +159,24 @@ def insertOrder():
     date = datetime.now()
     print("hi")
     if request.method == 'POST':
-        price = 200
-        print(price)
-        cake = 'barbie bachlorette cake'
-        print(cake)
+        print(request.form.get('OPrice'))
+        # print(request.form.get('StartPrice'))
+        price = request.form.get('OPrice')
+        # print(request.form.get('TotalPrice'))
+        cake = request.form.get('Oname')
         username = session['username']
-        print(request.form.get('cake size'))
+        print(request.form.get('Oname'))
+        # print(request.form.get('cake size'))
         if request.form.get('cake size') is None:
             size = 24
         else:
             size = request.form.get('cake size')
+        if request.form.get('cake size') == "0":
+            size = 22
+        elif request.form.get('cake size') == "70":
+            size = 24
+        elif request.form.get('cake size') == "100":
+            size = 26
         if request.form.get('cake flavor') is None:
             flavor = 'vanilla'
         else:
