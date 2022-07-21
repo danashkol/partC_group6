@@ -16,8 +16,7 @@ create table orders
     dairyFree          tinyint(1)  default 0            null,
     sugarFree          tinyint(1)  default 0            null,
     requests           varchar(500)                     null,
-    amountOfNumLetters int                              null,
-    numLetter          varchar(20)                      null,
+    amountOfNumLetters varchar(100)                     null,
     status             varchar(50) default 'in process' not null,
     constraint fk_cake
         foreign key (cake) references cakes (name),
@@ -27,7 +26,3 @@ create table orders
         foreign key (username) references costumers (username)
 )
     engine = InnoDB;
-
-INSERT INTO project_db.orders (orderId, username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree, dairyFree, sugarFree, requests, amountOfNumLetters, numLetter, status) VALUES (2, 'dana', 'barbie bachlorette cake', 200, '2022-07-17 19:15:59', 24, 'vanilla', '', 'white', '', 'white', 0, 0, 0, '', null, null, 'in process');
-INSERT INTO project_db.orders (orderId, username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree, dairyFree, sugarFree, requests, amountOfNumLetters, numLetter, status) VALUES (3, 'dana', 'barbie bachlorette cake', 200, '2022-07-18 09:46:02', 24, 'vanilla', '', 'white', '', 'white', 0, 0, 0, '', null, null, 'in process');
-INSERT INTO project_db.orders (orderId, username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree, dairyFree, sugarFree, requests, amountOfNumLetters, numLetter, status) VALUES (4, 'Dana', 'barbie bachlorette cake', 200, '2022-07-18 10:05:26', 24, 'vanilla', '', 'white', '', 'white', 0, 0, 0, '', null, null, 'in process');

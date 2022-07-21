@@ -46,6 +46,7 @@
                         <option>Purple</option>
                     </select><br>
                     <div>
+                        <input id="Letters" name="Letters" type="hidden" class="field" placeholder="Enter Letters" min="0" onclick="totalIt2()">
                         <label for="Gluten Free" class="checkboxLabel">Gluten Free<input id="Element1" name="Element1"
                                                                                          value="100"
                                                                                          class="checkbox"
@@ -61,8 +62,7 @@
                                                                                        onclick="totalIt()"/></label>
                     </div>
                     <textarea style="resize:none" class="field" name="requests"
-                              placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
-{#                    <h4 class="price">Total Price:<input value="270" readonly="readonly" type="text" id="cakeTprice" name="total" /></h4>#}
+                              placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests.)"></textarea>
                     <h4 class="price">Total Price:</h4>
                     <h4 type="number" name="TotalPrice" id="TotalPrice"></h4>
                     <input type="hidden" name="StartPrice" value="" readonly="readonly">

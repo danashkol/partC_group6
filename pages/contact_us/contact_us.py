@@ -20,5 +20,5 @@ def insert_connection():
     query = "INSERT INTO connections(name , email , phone , message) VALUES ('%s', '%s','%s', '%s')" % (
         name, email, phone, message)
     interact_db(query=query, query_type='commit')
-    return render_template('Contact Us.html', message_i='Message received')
+    return render_template('Contact Us.html', message_c="Message received")
 

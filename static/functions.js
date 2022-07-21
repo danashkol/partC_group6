@@ -29,7 +29,11 @@ function signIn_Alert(message) {
     }
 }
 
-
+function contactAlert(message){
+    if (message == "Message received"){
+        alert('Message received')
+    }
+}
 
 function openPopUp(image, cakeName ,price) {
     var popUp = document.getElementById("container");
@@ -67,10 +71,10 @@ function closePopUp() {
 
 const activePage = window.location.pathname;
 const navLinks = document.querySelectorAll('nav a').forEach(link => {
-  if(link.href.includes(`${activePage}`)){
-    link.classList.add('active');
-    console.log(activePage);
-  }
+    if(link.href.includes(`${activePage}`)){
+        link.classList.add('active');
+        console.log(activePage);
+    }
 })
 
 var myForm = document.getElementById("payment")
@@ -93,10 +97,10 @@ function mymessage(){
 
     if (CardHolder.value == "" ) {
         window.alert("name is required");
-     }
+    }
     else if (CardNumber.value.length < 16 || !CardNumber.value.match(/^\d+/))  {
         window.alert('Card number must be 16 digits');
-      
+
     }
     else if (ExpiredM.value.length <= 1 || !ExpiredM.value.match(/^\d+/) ) {
         window.alert('A month must contain two digits' || !CardHolder.value.match(/^\d+/) );
@@ -116,13 +120,13 @@ function mymessage(){
     else if( ExpiredY.value == year && ExpiredM.value < month ) {
         window.alert('The card has expired');
     }
- 
+
     else{
         submitBtuttom.disabled = true;
         document.getElementById("btn").classList.add('button--loading')
-         setTimeout(  myFunction, 3000 );
+        setTimeout(  myFunction, 3000 );
     }
-  
+
 }
 function myFunction() {
 
@@ -157,36 +161,48 @@ function totalIt() {
     }
     TotalP += parseFloat(size);
 
-      TotalPrice.innerHTML = TotalP;
-      // TPrice.innerHTML = TotalP;
-      document.querySelector('input[name="OPrice"]').value = TotalP
+    TotalPrice.innerHTML = TotalP;
+    // TPrice.innerHTML = TotalP;
+    document.querySelector('input[name="OPrice"]').value = TotalP
 
-      console.log(document.querySelector('input[name="OPrice"]').value)
-      console.log(document.querySelector('input[name="StartPrice"]').value)
-      // console.log(TotalPrice.innerHTML)
+    console.log(document.querySelector('input[name="OPrice"]').value)
+    console.log(document.querySelector('input[name="StartPrice"]').value)
+    // console.log(TotalPrice.innerHTML)
 
 
-  }
+}
+function totalIt2() {
+    let TotalP = parseInt(document.querySelector('input[name="StartPrice"]').value);
+    var input1 = document.getElementById("Element1");
+    var input2 = document.getElementById("Element2");
+    var input3 = document.getElementById("Element3");
+    var size = document.getElementById("Size").value;
+    var numOfCakes = document.getElementById("Letters").value.length;
 
-  // function totalIt2() {
-  //   var input = document.getElementsByName("Element");
-  //   var size = document.getElementById("Size").value;
-  //   var numOfCakes = document.getElementById("numOfCakes").value;
-  //   if(numOfCakes == 0){numOfCakes = 1;}
-  //   var total = parseFloat(size)*numOfCakes;
-  //   for (var i = 0; i < input.length; i++) {
-  //     if (input[i].checked) {
-  //       total += parseFloat(input[i].value);
-  //     }
-  //   }
-  //   document.querySelector('input[name="total"]').value = total;
-  // }
+    if(input1.checked){
+        TotalP += parseFloat(input1.value);
 
-  function checkIfLoged(){
+    }
+    if(input2.checked){
+        TotalP += parseFloat(input2.value);
+
+    }
+    if(input3.checked){
+        TotalP += parseFloat(input3.value);
+
+    }
+    TotalP += parseFloat(size);
+    if(numOfCakes==0){TotalP = TotalP*1;}
+    else{TotalP = TotalP*numOfCakes}
+    TotalPrice.innerHTML = TotalP;
+    document.querySelector('input[name="OPrice"]').value = TotalP
+}
+
+function checkIfLoged(){
     if (sessionStorage['logedin'] == false){
         alert("you must log in")
     }
-  }
+}
 // function move(){
 // var cake_Price = document.getElementById("cakeTprice");
 // var cake_Name = document.getElementById("name");

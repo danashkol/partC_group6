@@ -90,7 +90,7 @@ def adultCakes():
 
 @app.route('/numLetterCakes')
 def numLetCakes():
-    query = "select * from cakes where category='Num _ Letter cakes'"
+    query = "select * from cakes where category='Num&Letter cakes'"
     cakes_list = interact_db(query, query_type='fetch')
     return render_template('num _ letter cakes.html', CList=cakes_list)
 
@@ -198,11 +198,12 @@ def insertOrder():
         else:
             sugarFree = 1
         requests = request.form['requests']
+        amountOfNumLetters = request.form['Letters']
         query = "INSERT INTO orders (username,cake, price, date, size, flavor,age, ageColor, greeting, greetingColor, " \
-                "glutenFree, dairyFree, sugarFree,requests) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
-                "'%s', '%s','%s', '%s', '%s','%s','%s')" % (
+                "glutenFree, dairyFree, sugarFree,requests, amountOfNumLetters) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
+                "'%s', '%s','%s', '%s', '%s','%s','%s', '%s')" % (
                     username, cake, price, date, size, flavor, age, ageColor, greeting, greetingColor, glutenFree,
-                    dairyFree, sugarFree, requests)
+                    dairyFree, sugarFree, requests, amountOfNumLetters)
         interact_db(query=query, query_type='commit')
         return redirect('/payment')
     return render_template('signIn_Up3.html', message="You must Log-In to make an order")

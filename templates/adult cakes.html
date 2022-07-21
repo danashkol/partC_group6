@@ -2,19 +2,18 @@
 
 {% block main %}
         <link rel="stylesheet" href="../static/stylephotos.css">
-            <link rel="stylesheet" href="../static/styleCakePag.css">
-
     <div class="top">
         <h1>Adult Cakes</h1>
     </div>
-        <div class="photosCategory" id="photosCategory">
+    <div class="photosCategory" id="photosCategory">
         {% for C in CList %}
                 <div class="pic">
-                    <h3 class="cakeName">{{ C.name }}</h3>
+                   <h3 class="cakeName">{{ C.name }}</h3>
                     <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}', '{{ C.price }}')"></a>
                 </div>
         {% endfor %}
     </div>
+
     {% include 'cakePage.html' %}
 
 {% endblock %}

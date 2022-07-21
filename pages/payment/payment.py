@@ -42,7 +42,7 @@ def insert_charge_func():
     UPDATEquery = "update orders  set status ='%s'where username = '%s';" % ('payed', session['username'])
     interact_db(query=query, query_type='commit')
     interact_db(query=UPDATEquery, query_type='commit')
-    return render_template('paymentPage.html', message_p="True")
+    return render_template('paymentPage.html', TPrice=0, message_p="True")
 
 
 @payment.route('/delete_Order', methods=['POST'])

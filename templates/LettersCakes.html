@@ -9,8 +9,8 @@
                 <h2 name="cakeName" id="name"></h2>
                 <form class="form" action="/insertOrder" method="post">
                     <input type="hidden" name="cakeName" value="">
-                    <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
-                        <option disabled selected value="0">Cake Size - Default 22cm</option>
+                    <select name="cake size" class="field" id="Size" onchange="totalIt2()" required>
+                        <option disabled selected value="0">Cake Size - Default 24cm</option>
                         <option data-price="200" value="0">22 cm</option>
                         <option data-price="270" value="70">24 cm</option>
                         <option data-price="300" value="100">26 cm</option>
@@ -22,9 +22,10 @@
                         <option>Kinder</option>
                         <option>Pistachio</option>
                     </select><br>
-                    <input id="Letters" name="Letters" type="hidden" class="field" placeholder="Enter Letters" min="0" onclick="totalIt2()">
-                    <input name="age" type="number" class="field" placeholder="Add Age" min="0">
-                    <select name="decoration color" class="field" required>
+
+                    <input name="age" type="hidden" class="field" placeholder="Add Age" min="0">
+                     <input id="Letters" name="Letters" type="text" class="field" placeholder="Enter Cake Letters/Numbers" min="0" onchange="totalIt2()" required>
+                    <select name="decoration color" class="field" hidden="hidden">
                         <option disabled selected>Age Number Color - Default white</option>
                         <option>Red</option>
                         <option>Green</option>
@@ -50,15 +51,15 @@
                                                                                          value="100"
                                                                                          class="checkbox"
                                                                                          type="checkbox"
-                                                                                         onclick="totalIt()"/></label>
+                                                                                         onclick="totalIt2()"/></label>
                         <label for="Dairy Free" class="checkboxLabel">Dairy Free <input id="Element2" name="Element2"
                                                                                         value="70"
                                                                                         class="checkbox" type="checkbox"
-                                                                                        onclick="totalIt()"/></label>
+                                                                                        onclick="totalIt2()"/></label>
                         <label for="Sugar Free" class="checkboxLabel">Sugar Free<input id="Element3" name="Element3"
                                                                                        value="50"
                                                                                        class="checkbox" type="checkbox"
-                                                                                       onclick="totalIt()"/></label>
+                                                                                       onclick="totalIt2()"/></label>
                     </div>
                     <textarea style="resize:none" class="field" name="requests"
                               placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>

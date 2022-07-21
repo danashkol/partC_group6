@@ -1,17 +1,15 @@
 create table category
 (
-    category varchar(200) not null
-        primary key
-)
-    engine = InnoDB;
+    category varchar(200) null
+);
 
-INSERT INTO project_db.category (category) VALUES ('Adult Cakes');
-INSERT INTO project_db.category (category) VALUES ('Bachellorete Party Cakes');
-INSERT INTO project_db.category (category) VALUES ('Boy Cakes');
-INSERT INTO project_db.category (category) VALUES ('Girl Cakes');
-INSERT INTO project_db.category (category) VALUES ('Num&Letter cakes');
-INSERT INTO project_db.category (category) VALUES ('Pies');
-INSERT INTO project_db.category (category) VALUES ('Ring Cakes');
-INSERT INTO project_db.category (category) VALUES ('Special Cakes');
-INSERT INTO project_db.category (category) VALUES ('Wedding Cakes');
-INSERT INTO project_db.category (category) VALUES ('Yeast Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Adult Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Bachellorete Party Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Boy Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Girl Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Num&Letter cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Pies');
+INSERT INTO web_project_g6.category (category) VALUES ('Ring Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Special Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Wedding Cakes');
+INSERT INTO web_project_g6.category (category) VALUES ('Yeast Cakes');

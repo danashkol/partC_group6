@@ -2,6 +2,7 @@
 
 {% block main %}
 {<link rel="stylesheet" href="../static/styleContact.css">#}
+    <body onload="contactAlert('{{ message_c }}')">
     <div class="container">
         <div class="contact-box">
             <div class="left"></div>
@@ -20,4 +21,5 @@
             </div>
         </div>
     </div>
+    </body>
 {% endblock %}
