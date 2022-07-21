@@ -1,86 +1,101 @@
 {% extends 'base.html' %}
 
 {% block main %}
-<head>
-  <title>Payment</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
-  <link rel="stylesheet" href="../static/css_paymentPage.css">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
-</head>
+    <head>
+        <title>Payment</title>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Quicksand&display=swap">
+        <link rel="stylesheet" href="../static/css_paymentPage.css">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.1.1/css/all.min.css">
+    </head>
 
-<body onload="paymentAlert('{{ message_p }}')">
-<main class="page payment-page">
-    <section class="payment-form dark">
-      <div class="container">
-        <div class="block-heading">
-          <h2>Payment</h2>
-          <p> These are the cakes you collected so far, you can pay now or continue purchasing more cakes. Don't worry, the cakes you added to the shopping cart will be saved! Happy to be here for you at every occasion.</p>
-        </div>
-        <form action="/insert_charge" method="post">
-          <div class="products">
-            <h3 class="title">Checkout</h3>
-
-              <div class="item">
-                {% for O in OList %}
-{#                    {% if O.username == session.username %}#}
-                    <div class="item">
-                            <p class="item-name">
-                                {{ O.cake }}
-                            </p>
-                        </div>
-{#                    {% endif %}#}
-                {% endfor %}
-              </div>
-
-{#            <div class="item">#}
-{#              <span class="price"><input value="" readonly="readonly" type="text" id="OrderTotalPrice" name="OrderTotalPrice" /></span>#}
-{#              <p class="item-name">#}
-{#                  Cake#}
-{#              </p>#}
-{#              <p class="item-description">#}
-{#                  You Chose The Best Cake!#}
-{#              </p>#}
-{#            </div>#}
-
-
-            <div class="total">Total<span class="price">{{ TPrice }} ILS</span></div>
-          </div>
-          <div class="card-details">
-            <h3 class="title">Credit Card Details</h3>
-            <div class="row">
-              <div class="form-group">
-                <label for="card-holder" >Card Holder</label>
-                <input id="cardHolder" name="cardHolder" type="text" class="form-control" placeholder="Card Holder" aria-label="Card Holder" aria-describedby="basic-addon1"   minlength="1" pattern="[A-Za-z]+">
-              </div>
-              <div class="form-group">
-                <label for="">Expiration Date</label>
-                <div class="form-group">
-                  <input id="ExpiredM" name="expiredM" type="number" class="form-control" placeholder="MM" aria-label="MM" aria-describedby="basic-addon1"  minlength="2" maxlength="2" min="01" max="12" >
-                  <span class="date-separator">/</span>
-                  <input id="ExpiredY" name="expiredY" type="number" class="form-control" placeholder="YY" aria-label="YY" aria-describedby="basic-addon1"  minlength="4" maxlength="4" min="2022" max="2035" >
+    <body onload="paymentAlert('{{ message_p }}')">
+    <main class="page payment-page">
+        <section class="payment-form dark">
+            <div class="container">
+                <div class="block-heading">
+                    <h2>Payment</h2>
+                    <p> These are the cakes you collected so far, you can pay now or continue purchasing more cakes. Don't worry, the cakes you added to the shopping cart will be saved! Happy to be here for you at every occasion.</p>
                 </div>
-              </div>
-              <div class="form-group">
-                <label for="card-number">Card Number</label>
-                <input id="card-number" name="cardNumber" type="text" class="form-control" placeholder="Card Number" aria-label="Card Holder" aria-describedby="basic-addon1"  minlength="16" maxlength="16"  pattern="[0-9]+">
-              </div>
-              <div class="form-group">
-                <label for="cvc">CVC</label>
-                <input id="cvc" type="text" name="cvc" class="form-control" placeholder="CVC" aria-label="Card Holder" aria-describedby="basic-addon1" minlength="3" maxlength="3"  pattern="[0-9]+">
-              </div>
-                <input type="submit" id="btn" class="button" value="Proceed">
-              </div>
+                <form action="/delete_Order" method="post">
+                    <div class="products">
+                        <h3 class="title">Checkout</h3>
+
+                        <div class="item">
+                            {% for O in OList %}
+                                <div class="item">
+                                    <p class="item-name">
+                                    <div class="total">{{ O.cake }}<span class="price"> {{ O.price }} <button
+                                            class="btn" action="/DeleteOrder"><i class="fa-solid fa-trash" value="{{ O.orderId }}"></i></button></span>
+                                        {#                                    צריך להוסיף כאן את הJS#}
+                                    </div>
+                                    </p>
+                                </div>
+                            {% endfor %}
+                        </div>
+
+
+                        {#            <div class="item">#}
+                        {#              <span class="price"><input value="" readonly="readonly" type="text" id="OrderTotalPrice" name="OrderTotalPrice" /></span>#}
+                        {#              <p class="item-name">#}
+                        {#                  Cake#}
+                        {#              </p>#}
+                        {#              <p class="item-description">#}
+                        {#                  You Chose The Best Cake!#}
+                        {#              </p>#}
+                        {#            </div>#}
+
+
+                        <div class="total">Total<span class="price">{{ TPrice }} ILS</span></div>
+                    </div>
+                </form>
+
+
+                <form action="/insert_charge" method="post">
+                    <div class="card-details">
+                        <h3 class="title">Credit Card Details</h3>
+                        <div class="row">
+                            <div class="form-group">
+                                <label for="card-holder">Card Holder</label>
+                                <input id="cardHolder" name="cardHolder" type="text" class="form-control"
+                                       placeholder="Card Holder" aria-label="Card Holder"
+                                       aria-describedby="basic-addon1" minlength="1" pattern="[A-Za-z]+">
+                            </div>
+                            <div class="form-group">
+                                <label for="">Expiration Date</label>
+                                <div class="form-group">
+                                    <input id="ExpiredM" name="expiredM" type="number" class="form-control"
+                                           placeholder="MM" aria-label="MM" aria-describedby="basic-addon1"
+                                           minlength="2" maxlength="2" min="01" max="12">
+                                    <span class="date-separator">/</span>
+                                    <input id="ExpiredY" name="expiredY" type="number" class="form-control"
+                                           placeholder="YY" aria-label="YY" aria-describedby="basic-addon1"
+                                           minlength="4" maxlength="4" min="2022" max="2035">
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="card-number">Card Number</label>
+                                <input id="card-number" name="cardNumber" type="text" class="form-control"
+                                       placeholder="Card Number" aria-label="Card Holder"
+                                       aria-describedby="basic-addon1" minlength="16" maxlength="16" pattern="[0-9]+">
+                            </div>
+                            <div class="form-group">
+                                <label for="cvc">CVC</label>
+                                <input id="cvc" type="text" name="cvc" class="form-control" placeholder="CVC"
+                                       aria-label="Card Holder" aria-describedby="basic-addon1" minlength="3"
+                                       maxlength="3" pattern="[0-9]+">
+                            </div>
+                            <input type="submit" id="btn" class="button" value="Proceed">
+                        </div>
+                    </div>
+                </form>
             </div>
-        </form>
-      </div>
-    </section>
-  </main>
+        </section>
+    </main>
 
-</body>
-{#<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>#}
-{#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>#}
-</body>
-
+    </body>
+    {#<script src="https://code.jquery.com/jquery-3.2.1.min.js"></script>#}
+    {#<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>#}
+    </body>
 {% endblock %}

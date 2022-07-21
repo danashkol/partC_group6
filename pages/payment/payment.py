@@ -25,12 +25,6 @@ def payment_main():
     return render_template('paymentPage.html', OList=OrdersList, TPrice=TP, message_p="None")
 
 
-# @payment.route('/deleteOrder', methods=['POST'])
-# def delete_Order():
-#     query = "select * from orders"
-#     OrdersList = interact_db(query, query_type='fetch')
-
-
 @payment.route('/insert_charge', methods=['POST'])
 def insert_charge_func():
     cardHolder = request.form['cardHolder']
@@ -38,11 +32,29 @@ def insert_charge_func():
     expiredY = request.form['expiredY']
     cardNumber = request.form['cardNumber']
     cvc = request.form['cvc']
-    if not cardHolder or not cardNumber or not expiredY or not expiredY or not cvc:
-        return render_template('paymentPage.html', message_p="False")
+    if not cardHolder or not cardNumber or not expiredY or not expiredY or not cvc :
+        query1 = "select * from orders where username = '%s' and status = 'in process'" % (session['username'])
+        OrdersList = interact_db(query1, query_type='fetch')
+        TP = 0;
+        for order in OrdersList:
+            TP += order.price
+        return render_template('paymentPage.html', OList=OrdersList, TPrice=TP, message_p='Some details are missing. Please fill all the fields')
     query = "INSERT INTO payments(cardHolder, expiredM, expiredY, cardNumber, cvc ) VALUES ('%s', '%s','%s', '%s', '%s')" % (
         cardHolder, expiredM, expiredY, cardNumber, cvc)
     UPDATEquery = "update orders  set status ='%s'where username = '%s';" % ('payed', session['username'])
     interact_db(query=query, query_type='commit')
     interact_db(query=UPDATEquery, query_type='commit')
     return render_template('paymentPage.html', message_p="True")
+
+
+@payment.route('/delete_Order', methods=['POST'])
+def delete_Order():
+    # ID = request.form['OrderID']
+    # query = "delete  from oreders where orderID='%s';" %(id)
+    query1 = "select * from orders where username = '%s' and status = 'in process'" % (session['username'])
+    OrdersList = interact_db(query1, query_type='fetch')
+    TP = 0;
+    for order in OrdersList:
+        TP += order.price
+    return render_template('paymentPage.html', OList=OrdersList, TPrice=TP,
+                           message_p='deleted')
