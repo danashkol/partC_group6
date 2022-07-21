@@ -5,43 +5,12 @@
     <div class="top">
         <h1>Boy Cakes</h1>
     </div>
-{#    <div class="photosCategory" id="photosCategory">#}
-{#        <div class="pic Boys1">#}
-{#            <a><img id="Boys1" src="../Static/boy cakes/Animal cake.jpeg"#}
-{#                    onclick="openPopUp(this.src, 'Animal Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys2">#}
-{#            <a><img src="../Static/boy cakes/batman cake.jfif" onclick="openPopUp(this.src, 'Batman Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys3">#}
-{#            <a><img src="../Static/boy cakes/boys first birthday.jpg"#}
-{#                    onclick="openPopUp(this.src, 'Boys First Birthday')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys4">#}
-{#            <a><img src="../Static/boy cakes/boys ice cream cake.jpg"#}
-{#                    onclick="openPopUp(this.src, 'Boys Ice Cream Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys5">#}
-{#            <a><img src="../Static/boy cakes/boys teddy bear.jpg"#}
-{#                    onclick="openPopUp(this.src, 'Boys Teddy Bear')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys6">#}
-{#            <a><img src="../Static/boy cakes/spiderman cake.jpg"#}
-{#                    onclick="openPopUp(this.src, 'Spiderman Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys7">#}
-{#            <a><img src="../Static/boy cakes/tractor cake.jfif" onclick="openPopUp(this.src, 'Tractor Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys8">#}
-{#            <a><img src="../Static/boy cakes/train cake.jpg" onclick="openPopUp(this.src, 'Train Cake')"></a>#}
-{#        </div>#}
-{#    </div>#}
     <div class="photosCategory" id="photosCategory">
         {% for C in CList %}
-                <div class="pic">
-                   <h3 class="cakeName">{{ C.name }}</h3>
-                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
-                </div>
+            <div class="pic">
+                <h3 class="cakeName">{{ C.name }}</h3>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}', '{{ C.price }}')"></a>
+            </div>
         {% endfor %}
     </div>
     {% include 'cakePage.html' %}

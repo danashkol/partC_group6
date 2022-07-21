@@ -15,7 +15,7 @@
         <section class="payment-form dark">
             <div class="container">
                 <div class="block-heading">
-                    <h2>Payment</h2>
+                    <h2>Shopping Cart</h2>
                     <p> These are the cakes you collected so far, you can pay now or continue purchasing more cakes. Don't worry, the cakes you added to the shopping cart will be saved! Happy to be here for you at every occasion.</p>
                 </div>
                 <form action="/delete_Order" method="post">
@@ -27,31 +27,20 @@
                                 <div class="item">
                                     <p class="item-name">
                                     <div class="total">{{ O.cake }}<span class="price"> {{ O.price }} <button
-                                            class="btn" action="/DeleteOrder"><i class="fa-solid fa-trash" value="{{ O.orderId }}"></i></button></span>
-                                        {#                                    צריך להוסיף כאן את הJS#}
+                                            class="checkbox"
+                                            onclick="OrderId2Delete('{{ O.orderId }}')">
+                                            <i class="fa-solid fa-trash"></i>
+                                </button></span>
                                     </div>
                                     </p>
                                 </div>
                             {% endfor %}
                         </div>
 
-
-                        {#            <div class="item">#}
-                        {#              <span class="price"><input value="" readonly="readonly" type="text" id="OrderTotalPrice" name="OrderTotalPrice" /></span>#}
-                        {#              <p class="item-name">#}
-                        {#                  Cake#}
-                        {#              </p>#}
-                        {#              <p class="item-description">#}
-                        {#                  You Chose The Best Cake!#}
-                        {#              </p>#}
-                        {#            </div>#}
-
-
                         <div class="total">Total<span class="price">{{ TPrice }} ILS</span></div>
                     </div>
+                    <input type="hidden" name="ORDER2DELETE" value="" readonly="readonly">
                 </form>
-
-
                 <form action="/insert_charge" method="post">
                     <div class="card-details">
                         <h3 class="title">Credit Card Details</h3>

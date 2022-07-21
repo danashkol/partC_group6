@@ -7,43 +7,11 @@
     <div class="top">
         <h1>Adult Cakes</h1>
     </div>
-{#    <div class="photosCategory" id="photosCategory">#}
-{#        <div class="pic Adult1">#}
-{#            <a><img id="Adult1" src="../static/adult cakes/2 layer lotus cake.jpeg"#}
-{#                    onclick="openPopUp(this.src, '2 Layer Lotus Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult2">#}
-{#            <a><img src="../static/adult cakes/brown _ white birthday cake.jpeg"#}
-{#                    onclick="openPopUp(this.src, 'Brown & White Birthday Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult3">#}
-{#            <a><img src="../static/adult cakes/chocolate cake.jpeg" onclick="openPopUp(this.src, 'Chocolate Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult4">#}
-{#            <a><img src="../static/adult cakes/ferero cake.jpeg" onclick="openPopUp(this.src, 'Ferero Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult5">#}
-{#            <a><img src="../static/adult cakes/lotus cake.jpeg" onclick="openPopUp(this.src, 'Lotus Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult6">#}
-{#            <a><img src="../static/adult cakes/Mcdonalds cake.jpeg"#}
-{#                    onclick="openPopUp(this.src, 'McDonalds Cake' )"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult7">#}
-{#            <a><img src="../static/adult cakes/popcorn cake.jpeg" onclick="openPopUp(this.src, 'Popcorn Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Adult8">#}
-{#            <a><img src="../static/adult cakes/shavuot.jpeg" onclick="openPopUp(this.src, 'Pretzel Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Girls9">#}
-{#            <a><img src="../static/adult cakes/tricolad cake.jpeg" onclick="openPopUp(this.src, 'Tricolad Cake')"></a>#}
-{#        </div>#}
-{#    </div>#}
         <div class="photosCategory" id="photosCategory">
         {% for C in CList %}
                 <div class="pic">
                     <h3 class="cakeName">{{ C.name }}</h3>
-                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
+                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}', '{{ C.price }}')"></a>
                 </div>
         {% endfor %}
     </div>

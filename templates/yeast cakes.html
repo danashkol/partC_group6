@@ -1,88 +1,91 @@
 {% extends 'base.html' %}
 
 {% block main %}
-        <link rel="stylesheet" href="../static/stylephotos.css">
+    <link rel="stylesheet" href="../static/stylephotos.css">
     <div class="top">
         <h1>Yeast Cakes</h1>
     </div>
-{#    <div class="photosCategory" id="photosCategory">#}
-{#        <div class="pic Yeast1">#}
-{#            <a><img id="Yeast1" src="../Static/yeast cakes/cheese _ chocolate yeast cake.jfif"#}
-{#                    onclick="openPopUp(this.src, 'Cheese & Chocolate Yeast Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Boys2">#}
-{#            <a><img src="../Static/yeast cakes/cheese _ rasberry teast cake.jfif"#}
-{#                    onclick="openPopUp(this.src, 'Cheese & Rasberry Yeast Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Yeast3">#}
-{#            <a><img src="../Static/yeast cakes/chocolate yeast cale.jpeg"#}
-{#                    onclick="openPopUp(this.src, 'Chocolate Yeast Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Yeast4">#}
-{#            <a><img src="../Static/yeast cakes/cinammon yeat cake.jfif"#}
-{#                    onclick="openPopUp(this.src, 'Cinnamon Yeast Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Yeast5">#}
-{#            <a><img src="../Static/yeast cakes/poopy seed yeast cake.jfif"#}
-{#                    onclick="openPopUp(this.src, 'Poppy Seed Yeast Cake')"></a>#}
-{#        </div>#}
-{#        <div class="pic Yeast6">#}
-{#            <a><img src="../Static/yeast cakes/rose shaped yeast cake.jfif"#}
-{#                    onclick="openPopUp(this.src, 'Rose Shaped Yeast Cake')"></a>#}
-{#        </div>#}
-{#    </div>#}
-   <div class="photosCategory" id="photosCategory">
+    <div class="photosCategory" id="photosCategory">
         {% for C in CList %}
-                <div class="pic">
-                   <h3 class="cakeName">{{ C.name }}</h3>
-                    <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}')"></a>
-                </div>
+            <div class="pic">
+                <h3 class="cakeName">{{ C.name }}</h3>
+                <a> <img src="{{ C.pic }}" onclick="openPopUp(this.src, '{{ C.name }}', '{{ C.price }}')"></a>
+            </div>
         {% endfor %}
     </div>
-
     <div class="container" id="container">
         <div class="contact-box">
             <div class="left" id="left">
-                <img id="oleft" alt="">
+                <img src="" id="oleft" alt="">
             </div>
             <div class="right">
                 <button id="close" onclick="closePopUp()">X</button>
                 <div class="right1">
-                    <h2 id="name"></h2>
-                    <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
-                        <option disabled selected>Cake Size - Defualt 20cm </option>
-                        <option value="200">20 cm</option>
-                        <option value="250">25 cm</option>
-                        <option value="300">30 cm</option>
-                    </select><br>
-                    <input name = "greeting" type="text" class="field" placeholder="Add Greeting" maxlength="30">
-                    <select name="decoration color greet" class="field" required>
-                        <option disabled selected>Greeting Color</option>
-                        <option>Red</option>
-                        <option>Green</option>
-                        <option>Blue</option>
-                        <option>White</option>
-                        <option>Black</option>
-                        <option>Pink</option>
-                        <option>Purple</option>
-                    </select><br>
-                    <div>
-                        <label for="Gluten Free" class="checkboxLabel">Gluten Free<input name="Element" value="100"
-                                class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                        <label for="Dairy Free" class="checkboxLabel">Dairy Free <input name="Element" value="70"
-                                class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                        <label for="Suger Free" class="checkboxLabel">Sugar Free<input name="Element" value="50"
-                                class="checkbox" type="checkbox" onclick="totalIt()" /></label>
-                    </div>
-                    <textarea style="resize:none" class="field"
-                        placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
-                    <h4 class="price">Total Price:<input value="" readonly="readonly" type="text" id="cakeTprice"
-                            name="total" /></h4>
-                    <button name="total" class="btn" value="0">Payment</button>
-                </form>
+                    <h2 name="cakeName" id="name"></h2>
+                    <form class="form" action="/insertOrder" method="post">
+                        <input type="hidden" name="cakeName" value="">
+                        <select name="cake size" class="field" id="Size" onchange="totalIt()" required>
+                            <option disabled selected value="0">Cake Size - Default 22cm</option>
+                            <option data-price="200" value="0">22 cm</option>
+                            <option data-price="270" value="70">24 cm</option>
+                            <option data-price="300" value="100">26 cm</option>
+                        </select><br>
+                        <select name="cake flavor" class="field" required>
+                            <option value="Vanilla" disabled selected>Cake Flavor - Default Vanilla</option>
+                            <option>Nutella</option>
+                            <option>Vanilla</option>
+                            <option>Kinder</option>
+                            <option>Pistachio</option>
+                        </select><br>
+
+                        <input name="age" type="number" class="field" placeholder="Add Age" min="0">
+                        <select name="decoration color" class="field" required>
+                            <option disabled selected>Age Number Color - Default white</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                        </select><br>
+                        <input name="greet" type="text" class="field" placeholder="Add Greeting" maxlength="30">
+                        <select name="decoration color greet" class="field" required>
+                            <option disabled selected>Greeting Color - Default white</option>
+                            <option>Red</option>
+                            <option>Green</option>
+                            <option>Blue</option>
+                            <option>White</option>
+                            <option>Black</option>
+                            <option>Pink</option>
+                            <option>Purple</option>
+                        </select><br>
+                        <div>
+                            <label for="Gluten Free" class="checkboxLabel">Gluten Free<input id="Element1" name="Element1"
+                                                                                             value="100"
+                                                                                             class="checkbox"
+                                                                                             type="checkbox"
+                                                                                             onclick="totalIt()"/></label>
+                            <label for="Dairy Free" class="checkboxLabel">Dairy Free <input id="Element2" name="Element2"
+                                                                                            value="70"
+                                                                                            class="checkbox" type="checkbox"
+                                                                                            onclick="totalIt()"/></label>
+                            <label for="Sugar Free" class="checkboxLabel">Sugar Free<input id="Element3" name="Element3"
+                                                                                           value="50"
+                                                                                           class="checkbox" type="checkbox"
+                                                                                           onclick="totalIt()"/></label>
+                        </div>
+                        <textarea style="resize:none" class="field" name="requests"
+                                  placeholder="Special Requests (We keep the right to make an additional charge, depending on the requests)"></textarea>
+                        <h4 class="price">Total Price:</h4>
+                        <h4 type="number" name="TotalPrice" id="TotalPrice"></h4>
+                        <input type="hidden" name="StartPrice" value="" readonly="readonly">
+                        <input type="hidden" name="OPrice" value="" readonly="readonly">
+                        <input type="hidden" name="Oname" value="" readonly="readonly">
+                        <button name="total" class="btn" value="0">Payment</button>
+                    </form>
                 </div>
             </div>
-
         </div>
     </div>
 {% endblock %}

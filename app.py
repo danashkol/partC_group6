@@ -9,7 +9,7 @@ def interact_db(query, query_type: str):
     return_value = False
     connection = mysql.connector.connect(host='localhost',
                                          user='root',
-                                         passwd='Vbgkvht767!',
+                                         passwd='Root',
                                          database='project_db')
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
@@ -157,18 +157,12 @@ def insertOrder():
         return render_template('signIn_Up3.html')
     username = session['username']
     date = datetime.now()
-    print("hi")
     if request.method == 'POST':
-        print(request.form.get('OPrice'))
-        # print(request.form.get('StartPrice'))
         price = request.form.get('OPrice')
-        # print(request.form.get('TotalPrice'))
         cake = request.form.get('Oname')
         username = session['username']
-        print(request.form.get('Oname'))
-        # print(request.form.get('cake size'))
         if request.form.get('cake size') is None:
-            size = 24
+            size = 22
         else:
             size = request.form.get('cake size')
         if request.form.get('cake size') == "0":
@@ -204,10 +198,6 @@ def insertOrder():
         else:
             sugarFree = 1
         requests = request.form['requests']
-        # print(requests)
-        # amountOfNumLetters = request.form['numberOfCakes']
-        # print(amountOfNumLetters)
-        # numLetters = request.form['numLetter']
         query = "INSERT INTO orders (username,cake, price, date, size, flavor,age, ageColor, greeting, greetingColor, " \
                 "glutenFree, dairyFree, sugarFree,requests) VALUES ('%s','%s', '%s', '%s', '%s','%s', '%s', " \
                 "'%s', '%s','%s', '%s', '%s','%s','%s')" % (
@@ -216,9 +206,6 @@ def insertOrder():
         interact_db(query=query, query_type='commit')
         return redirect('/payment')
     return render_template('signIn_Up3.html', message="You must Log-In to make an order")
-
-
-
 
 
 if __name__ == '__main__':

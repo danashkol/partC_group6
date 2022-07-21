@@ -3,9 +3,7 @@
 {% block main %}
     <link rel="stylesheet" href="../static/css_signIn3.css">
     <script defer src="../static/signIn3.js"></script>
-
-
-
+    <body onload="signIn_Alert('{{ message_i }}')">
     <section class="user">
         <div class="user_options-container">
             <div class="user_options-text">
@@ -25,7 +23,6 @@
             <div class="user_options-forms" id="user_options-forms">
                 <div class="user_forms-login">
                     <h2 class="forms_title">Log In</h2>
-                    <h3>{{ logIn_message }}</h3><br>
                     <form action="/logIn" class="forms_form" method="post">
                         <fieldset class="forms_fieldset">
                             <div class="forms_field">
@@ -45,7 +42,6 @@
                 </div>
                 <div class="user_forms-signup">
                     <h2 class="forms_title">Sign Up</h2>
-                    <h3>{{ message_i }}</h3><br>
                     <form action="/insert_costumer" method="post" class="forms_form">
                         <fieldset class="forms_fieldset">
                             <div class="forms_field">
@@ -73,7 +69,6 @@
             </div>
         </div>
     </section>
-    {% if message %}
-        <h2>{{ message }}</h2>
-    {% endif %}
+    </body>
+
 {% endblock %}

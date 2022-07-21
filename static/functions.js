@@ -1,13 +1,35 @@
 function paymentAlert(message) {
     if (message == "True") {
-        alert("Congrats! Payment completed Successfully!", "You can collect your order from the store in 48 hours!");
+        alert("Congrats! Payment completed Successfully!" +
+            " You can collect your order from the store in 48 hours!");
     }
-    if (message == "None") {
+    else if (message == "no Cakes"){
+        alert("No Cakes in Cart")
+    }
+    else if (message == "None") {
         console.log("hi");
-    } else {
+    }
+    else if (message == "deleted"){
+        alert("Cake Deleted From Cart")
+    }
+    else if (message == "False"){
+        console.log(message)
         alert('Some details are missing. Please fill all the fields');
     }
 }
+function signIn_Alert(message) {
+    if (message == "no matching") {
+        alert("Wrong Username or Password");
+    }
+    else if (message == "exists"){
+        alert("This Username Alraedy Exists. Please Try Again")
+    }
+    else if (message == "Added"){
+        alert('User Added Successfully');
+    }
+}
+
+
 
 function openPopUp(image, cakeName ,price) {
     var popUp = document.getElementById("container");
@@ -176,3 +198,8 @@ function totalIt() {
 // document.getElementById("cakePriceP").innerHTML = localStorage.getItem("price");
 // document.getElementById("name").innerHTML = localStorage.getItem("cname");
 
+function OrderId2Delete(ID) {
+    // console.log(document.querySelector('input[name="ORDER2DELETE"]').value)
+    document.querySelector('input[name="ORDER2DELETE"]').value = ID
+    // console.log(document.querySelector('input[name="ORDER2DELETE"]').value)
+}
