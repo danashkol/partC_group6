@@ -1,19 +1,24 @@
 from datetime import timedelta, datetime
-
+from settings import DB
 import mysql.connector
 import requests
 from flask import Blueprint, render_template, request, redirect, session, jsonify, Flask
 
 
+# def interact_db(query, query_type: str):
+#     return_value = False
+#     connection = mysql.connector.connect(host='localhost',
+#                                          user='root',
+#                                          passwd='Vbgkvht767!',
+#                                          database='project_db')
+#     cursor = connection.cursor(named_tuple=True)
+#     cursor.execute(query)
+
 def interact_db(query, query_type: str):
     return_value = False
-    connection = mysql.connector.connect(host='localhost',
-                                         user='root',
-                                         passwd='Root',
-                                         database='project_db')
+    connection = mysql.connector.connect(**DB)
     cursor = connection.cursor(named_tuple=True)
     cursor.execute(query)
-    #
 
     if query_type == 'commit':
         connection.commit()
@@ -29,7 +34,8 @@ def interact_db(query, query_type: str):
 
 
 app = Flask(__name__)
-app.secret_key = '123'
+# app.secret_key = '123'
+app.config.from_pyfile('settings.py')
 app.config['SESSION_PERMANENT'] = True
 app.config['PERMANENT_SESSION_LIFETIME'] = timedelta(minutes=1000)
 
